@@ -1,0 +1,66 @@
+﻿
+@import url('https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css');
+.gantt-container {
+    display: grid;
+    grid-auto-rows: 50px;
+    grid-template-columns: repeat( @Model.NoOfDaysInMonth, 3fr);
+    gap: 1px;
+    border: 1px solid #ddd;
+    padding: 10px;
+    background-color: #f9f9f9;
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+
+.gantt-header {
+    font-weight: bold;
+    text-align: center;
+    padding: 5px;
+    border: 1px solid #ccc;
+    background-color: #ddd;
+}
+
+.booking-bar {
+    background: linear-gradient(to right, #f18fe4, /* red */
+    #f0f576, /* purple */
+    #a6f9db, /* blue */
+    white /* green */
+    );
+    color: #7b817f;
+    text-align: center;
+    line-height: 40px;
+    border-radius: 5px;
+    z-index: 1;
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+.gantt-container-bottom {
+    display: grid;
+    grid-template-columns: repeat( @Model.NoOfDaysInMonth, 3fr);
+    gap: 1px;
+    border: 1px solid #ddd;
+    padding: 10px;
+    background-color: #f9f9f9;
+    overflow-x: auto;
+    overflow-y: hidden;
+}
+
+.bottom-data {
+    text-align: center;
+    width: 70px;
+    border: 1px solid #ccc;
+    padding: 5px;
+    background-color: #e9ecef;
+}
+
+.firstIcon {
+    width: 25px;
+    height: 25px;
+}
+
+.iconDiv {
+    width: 50px;
+}
+
+

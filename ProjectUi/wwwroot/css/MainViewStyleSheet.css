@@ -1,0 +1,80 @@
+﻿* {
+    font-weight: bold;
+    font-family: Helvetica, Arial, sans-serif;
+}
+.one {
+    width: 100%;
+    height: 150px;
+}
+
+.form-check-input {
+    display: none;
+}
+
+.list-year {
+    border: 2px solid black;
+    color: black !important;
+  
+    gap: 2px;
+    margin-left: 3px;
+    background-color: #ffffff !important;
+}
+
+    .list-year:has(> .form-check-input:checked) {
+        background-color: #fafafa !important;
+        box-shadow: 0 0 5px 5px #dededf;
+        width: 60px;
+    }
+
+.labelSize-year {
+    width: 40px;
+    height: 20px;
+    display:flex;
+    align-items: center;
+}
+
+.form-check-input-month {
+    display: none;
+}
+
+.btn-month {
+    color: black !important;
+    background: #ffffff !important;
+    margin-left: 1px;
+    width:40px;
+}
+
+    .btn-month:has(> .form-check-input-month:checked) {
+        background-color: #fafafa !important;
+        box-shadow: 0 0 5px 5px #dededf;
+    }
+
+.labelSize-month {
+    width: 65px;
+    align-items: center;
+}
+/* style for search part */
+.search-bar {
+    border:none;
+    border-radius: 5px;
+   
+    background-color: white;
+    align-items: center;
+    box-shadow: 0 0 3px black;
+}
+
+.textStyle {
+    font-weight: bold;
+    font-family: Helvetica, Arial, sans-serif;
+}
+
+.first-dropdown {
+    border: none; /* Remove border */
+
+    border-radius: 5px; /* Rounded corners */
+    padding: 5px;
+    font-weight: bold;
+    font-size: 10px;
+    font-family: Helvetica, Arial, sans-serif;
+    box-shadow: 0 0 3px black;
+}

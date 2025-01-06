@@ -1,0 +1,7 @@
+﻿@model List<MainModel>
+@foreach (var month in Model)
+{
+  <div>
+        <input type="radio" value="@month.id" name="months" /> @month.months
+  </div>
+}
