@@ -27,10 +27,9 @@
     }
 
 .labelSize-year {
-    width: 40px;
+    width: 70px;
     height: 20px;
-    display:flex;
-    align-items: center;
+  
 }
 
 .form-check-input-month {
@@ -40,8 +39,9 @@
 .btn-month {
     color: black !important;
     background: #ffffff !important;
-    margin-left: 1px;
-    width:40px;
+    margin-left: 3px;
+    margin-top: 3px;
+    width: 40px;
 }
 
     .btn-month:has(> .form-check-input-month:checked) {
@@ -51,7 +51,8 @@
 
 .labelSize-month {
     width: 65px;
-    align-items: center;
+    height:20px;
+    font-size: 13px;
 }
 /* style for search part */
 .search-bar {
@@ -78,3 +79,4 @@
     font-family: Helvetica, Arial, sans-serif;
     box-shadow: 0 0 3px black;
 }
+

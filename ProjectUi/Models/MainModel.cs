@@ -8,7 +8,6 @@
 
         public List<GuestModel> guestModals { get; set; }
 
-        public List<GuestStatus> guestStatuses { get; set; }
         public int NoOfDaysInMonth { get; set; }
         public int currentMonth { get; set; }
         public int currentYear { get; set; }

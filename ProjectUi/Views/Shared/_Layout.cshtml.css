@@ -51,13 +51,17 @@ button.accept-policy {
     box-shadow: 2px 0px 5px rgba(0, 0, 0, 0.1);
     height: 100vh;
     z-index: 1000;
-    width: 1000px;
+    width: 20%;
+
 }
 .sidebar-header {
     padding: 25px 0;
     background-color: #ffffff;
     height: 62px;
     border-bottom: 1px solid #dee2e6;
+}
+.main {
+    width: 80%;
 }
 .sidebar-menu .nav-link {
     color: #bfbebe;
@@ -74,10 +78,10 @@ button.accept-policy {
     }
 @media (max-width: 1170px) {
     .sidebar {
-        width: 230px;
+        width: 18%;
     }
-    .main-content {
-        width: 700px;
+    .main {
+        width: 70%;
        
     }
         .sidebar .nav-link {
@@ -85,16 +89,17 @@ button.accept-policy {
             padding: 8px 10px;
         }
 }
-@media (max-width: 768px) {
+@media (min-width: 320px) and (max-width: 576px) {
     .sidebar {
-        width: 200px;
+        width: 15%;
     }
 
-    .main-content {
-        width: 700px;
-       
+    .main{
+        width: 55%;
     }
-
+    .sidebar-menu {
+        text-align: center;
+    }
     .sidebar-menu .nav-link {
         font-size: 14px;
     }
@@ -102,11 +107,11 @@ button.accept-policy {
 
 @media (max-width: 576px) {
     .sidebar {
-        width: 100px;
+        width: 13%;
     }
 
-    .main-content {
-        width: 500px;
+    .main {
+        width: 50%;
         
     }
 
@@ -116,6 +121,25 @@ button.accept-policy {
 
         .sidebar-menu .nav-link {
             padding: 8px;
+            font-size: 12px;
+        }
+}
+@media (max-width: 400px) {
+    .sidebar {
+        width: 10%;
+    }
+
+    .main{
+        width: 45%;
+    }
+
+    .sidebar-menu {
+        text-align: center;
+    }
+
+        .sidebar-menu .nav-link {
+            font-size: 10px;
+            padding: 6px;
         }
 }
 
