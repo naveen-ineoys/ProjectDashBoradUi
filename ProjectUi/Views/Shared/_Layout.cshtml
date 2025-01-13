@@ -10,39 +10,21 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 </head>
 <body>
-    
-    <div class="container-fluid">
-            <div class="row flex-nowrap">
-            <div class="col-auto col-md-3 col-xl-2 px-sm-1 px-0 side-bar">
-                <div class="sidebar-header py-3 border-bottom text-center">
-                    <img src="~/images/sample-logo.png" alt="Sample Logo" class="img-fluid">
-                </div>
-                <ul class="nav flex-column sidebar-menu">
-                    <li class="nav-item"><a class="nav-link" href="#">Dashboard</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#">Reservation</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#">Restaurant</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#">Laundry</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#">Housekeeping</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#">Staff Management</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#">Asset Management</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#">Employee</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#">Payroll</a></li>
-                </ul>
-            </div>
+    @RenderBody()
+   @*  <div class="container-fluid">
+        <div class="row flex-nowrap">
+            
             <div class="container main ">
                 <main role="main" class="pb-3">
-                    @RenderBody()
+                 
                 </main>
             </div>
 
-            </div>
         </div>
-   
-@*     <footer class="border-top footer text-muted">
-        <div class="container">
-            &copy; 2024 - ProjectUi - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
-        </div>
-    </footer> *@
+    </div>
+           *@
+
+           
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>

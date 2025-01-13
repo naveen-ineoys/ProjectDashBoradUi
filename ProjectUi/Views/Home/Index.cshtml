@@ -2,11 +2,56 @@
 @model MainModel
 
 <link href="~/css/mainviewstylesheet.css" rel="stylesheet" />
+<div class="side">
+    <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
+        <button class="navbar-toggler d-flex justify-content-end" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
+                aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
+            <div class="sidebar-header py-3 border-bottom text-center">
+                <img src="~/images/sample-logo.png" alt="Sample Logo" class="img-fluid">
+            </div>
+            <ul class="nav sidebar-menu">
+                <li class="nav-item"><a class="nav-link" asp-action="" asp-controller="">Dashboard</a></li>
+                <li class="nav-item"><a class="nav-link" asp-action="" asp-controller="" >Reservation</a></li>
+                <li class="nav-item"><a class="nav-link" asp-action="" asp-controller="">Restaurant</a></li>
+                <li class="nav-item"><a class="nav-link" asp-action="" asp-controller="">Laundry</a></li>
+                <li class="nav-item"><a class="nav-link" asp-action="" asp-controller="">Housekeeping</a></li>
+                <li class="nav-item"><a class="nav-link" asp-action="" asp-controller="">Staff Management</a></li>
+                <li class="nav-item"><a class="nav-link" asp-action="" asp-controller="">Asset Management</a></li>
+                <li class="nav-item"><a class="nav-link" asp-action="" asp-controller="">Employee</a></li>
+                <li class="nav-item"><a class="nav-link" asp-action="" asp-controller="">Payroll</a></li>
+            </ul>
+        </div>
+    </nav>
+</div>
 
 
+<div class="fulldiv d-flex">
 
+    <div class="side-bar ">
+       
+            <div class="navbar-collapse   ">
+                <div class="sidebar-header py-3 border-bottom text-center">
+                    <img src="~/images/sample-logo.png" alt="Sample Logo" class="img-fluid">
+                </div>
+                <ul class="nav flex-column sidebar-menu">
+                     <li class="nav-item"><a class="nav-link"  asp-action="" asp-controller="">Dashboard</a></li>
+                     <li class="nav-item"><a class="nav-link" asp-action="" asp-controller="">Reservation</a></li>
+                    <li class="nav-item"><a class="nav-link"  asp-action="" asp-controller="">Restaurant</a></li>
+                    <li class="nav-item"><a class="nav-link"  asp-action="" asp-controller="">Laundry</a></li>
+                    <li class="nav-item"><a class="nav-link"  asp-action="" asp-controller="">Housekeeping</a></li>
+                    <li class="nav-item"><a class="nav-link"  asp-action="" asp-controller="">Staff Management</a></li>
+                    <li class="nav-item"><a class="nav-link"  asp-action="" asp-controller="">Asset Management</a></li>
+                    <li class="nav-item"><a class="nav-link"  asp-action="" asp-controller="">Employee</a></li>
+                    <li class="nav-item"><a class="nav-link"  asp-action="" asp-controller="">Payroll</a></li>
+                </ul>
+            </div>
 
-    <div class="container-fluid main-content">
+</div>
+   
+    <div class="main-content">
             @* container for create a year list  *@
             <div class="container-fluid mt-2">
                 <div class="container-fluid ">
@@ -85,7 +130,7 @@
                                 </select>
                             </div>
                             <div class=" col-4 mt-4">
-                                <label for="second-drop">Room Category</label>
+                                <label for="second-drop"> Category</label>
                                 <select class="form-select first-dropdown" id="second-drop" aria-label="Default select example">
 
                                     <option value="1">King</option>
@@ -94,7 +139,7 @@
                                 </select>
                             </div>
                             <div class=" col-4 mt-4">
-                                <label for="second-drop">Room Category</label>
+                                <label for="second-drop">Category</label>
                                 <select class="form-select first-dropdown" id="second-drop" aria-label="Default select example">
 
                                     <option value="1">King</option>
@@ -115,7 +160,7 @@
                                 </select>
                             </div>
                             <div class=" col-4 mt-4">
-                                <label for="second-drop">Room Category</label>
+                                <label for="second-drop"> Category</label>
                                 <select class="form-select first-dropdown" id="second-drop" aria-label="Default select example">
 
                                     <option value="1">King</option>
@@ -138,7 +183,7 @@
             @* Partial view call the guest stay details in day view *@
             <div id="partial"></div>
         </div>
-
+</div>
   
 
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">

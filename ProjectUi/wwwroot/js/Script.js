@@ -4,6 +4,8 @@
     $(".search-bar").click(function () {
         $("#one").toggle();
     });
+   
+
     //initialy loaded the current guest data so we call the findmonth 
     FindMonth();
     
