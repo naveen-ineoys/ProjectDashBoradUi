@@ -8,23 +8,54 @@
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/ProjectUi.styles.css" asp-append-version="true" />
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link href="~/css/mainviewstylesheet.css" rel="stylesheet" />
 </head>
 <body>
-    @RenderBody()
-   @*  <div class="container-fluid">
-        <div class="row flex-nowrap">
-            
-            <div class="container main ">
-                <main role="main" class="pb-3">
-                 
-                </main>
-            </div>
+    <div class="d-lg-flex d-sm-flex d-block">
+        <div class="side-nav-bar" id="nav-bar-div">
+            <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom  box-shadow mb-3">
+                <div class="nav-inner-div">
+                    <a class="navbar-brand" asp-area="" asp-controller="#" asp-action="#">LOGO</a>
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
+                            aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
+
+                        <ul class="navbar-nav flex-grow-1 .flex-lg-column">
+                            <li class="nav-item"><a class="nav-link" asp-action="Index" asp-controller="Home">Dashboard</a></li>
+                            <li class="nav-item"><a class="nav-link" asp-action="FrontDeskDashBoard" asp-controller="FrontDesk">Front Desk </a></li>
+                            <li class="nav-item"><a class="nav-link" asp-action="Reservation" asp-controller="Reservation">Reservation</a></li>
+                            <li class="nav-item"><a class="nav-link" asp-action="Restaurant" asp-controller="Project">Restaurant</a></li>
+                            <li class="nav-item"><a class="nav-link" asp-action="Laundry" asp-controller="Project">Laundry</a></li>
+                            <li class="nav-item"><a class="nav-link" asp-action="HouseKeeping" asp-controller="House">Housekeeping</a></li>
+
+                            <li class="nav-item"><a class="nav-link" asp-action="AssetManagement" asp-controller="Project">Asset Management</a></li>
+                            <li class="nav-item"><a class="nav-link" asp-action="EmployeeManagement" asp-controller="Employee">Employee</a></li>
+                            <li class="nav-item"><a class="nav-link" asp-action="Payrol" asp-controller="Project">Payroll</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+        </div>
+        <div class="main-contain p-2">
+
+            @RenderBody()
 
         </div>
     </div>
-           *@
+    <script>
+                 document.addEventListener("DOMContentLoaded", function () {
+            const currentPath = window.location.pathname.toLowerCase();
+            const navLinks = document.querySelectorAll('.nav-link');
 
-           
+            navLinks.forEach(link => {
+                if (currentPath === link.getAttribute('href').toLowerCase()) {
+                    link.classList.add('active');
+                }
+            });
+        });
+    </script>
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
@@ -32,4 +63,5 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-multiselect/0.9.13/css/bootstrap-multiselect.css">
     @await RenderSectionAsync("Scripts", required: false)
 </body>
+
 </html>

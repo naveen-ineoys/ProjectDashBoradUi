@@ -1,0 +1,44 @@
+﻿@model List<RestaurantModel>
+
+<div class="p-2">
+
+    <div class="container-fluid d-flex justify-content-end mt-3">
+        <a class="btn btn-primary">Create</a>
+
+    </div>
+
+    <table class="table table-primary table-danger table-responsive-sm mt-5">
+        <thead>
+            <tr>
+
+                <th>RoomNo</th>
+                <th>CustomerName</th>
+                <th>CilentId</th>
+                <th>MealType</th>
+                <th>Timings</th>
+                <th>Edit</th>
+                <th>Delete</th>
+            </tr>
+        </thead>
+        <tbody>
+
+            @foreach (var item in Model)
+            {
+                <tr>
+
+                    <td>@item.RoomNo</td>
+                    <td>@item.CustomerName</td>
+                    <td>@item.ClientId</td>
+                    <td>@item.MealType</td>
+                    <td>@item.Timeings</td>
+                    <td><a asp-controller="Home" asp-action="Edit" asp-route-id="@item.ClientId" class="btn btn-outline-primary">Edit</a></td>
+                    <td><a asp-controller="Home" asp-action="Delete" asp-route-id="@item.ClientId" class="btn btn-outline-danger  ">Delete</a></td>
+
+
+                </tr>
+
+            }
+        </tbody>
+    </table>
+
+    </div>

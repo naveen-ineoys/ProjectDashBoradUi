@@ -1,0 +1,46 @@
+﻿@model List<PayRoll>
+
+<div class="p-2">
+
+    <div class="container-fluid d-flex justify-content-end mt-3">
+        <a class="btn btn-primary">Create</a>
+
+    </div>
+
+    <table class="table table-light table-danger table-responsive-sm mt-5">
+        <thead>
+            <tr>
+
+                <th>EmployeeId</th>
+                <th>EmployeeName</th>
+                <th>Total No of Working Days</th>
+                <th>Attended Working Days</th>
+                <th>Number of Leaves</th>
+                <th>Edit</th>
+                <th>Read</th>
+
+            </tr>
+        </thead>
+        <tbody>
+
+            @foreach (var item in Model)
+            {
+                <tr>
+
+                    <td>@item.EmployeeId</td>
+                    <td>@item.EmployeeName</td>
+                    <td>@item.TotalNumberOfWorkingDays</td>
+                    <td>@item.AttenedWorkingDays</td>
+                    <td>@item.TotalNumberOfleaves</td>
+                    <td><a asp-controller="Home" asp-action="Edit" asp-route-id="@item.EmployeeId" class="btn btn-outline-primary">Edit</a></td>
+                    <td><a asp-controller="Home" asp-action="Delete" asp-route-id="@item.EmployeeId" class="btn btn-outline-danger  ">Delete</a></td>
+
+
+                </tr>
+
+            }
+        </tbody>
+    </table>
+
+</div>
+

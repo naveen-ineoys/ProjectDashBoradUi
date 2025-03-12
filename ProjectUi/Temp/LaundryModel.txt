@@ -1,0 +1,1 @@
+[{"RoomNo":202,"CustomerName":"Naveen","ClientId":"xyz0987","DressCounts":10,"DressCheckInTime":"2022-02-12T10:40:00","DressCheckOutTime":"2022-03-12T08:10:00"},{"RoomNo":203,"CustomerName":"Jerry","ClientId":"xyz0981","DressCounts":7,"DressCheckInTime":"2022-06-01T08:40:00","DressCheckOutTime":"2022-06-01T12:00:00"}]

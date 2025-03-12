@@ -1,0 +1,1 @@
+[{"RoomNo":301,"BoughtThingsName":"BedSheet","BoughtBy":"Emp01","BoughtDate":"2022-09-12T00:00:00","TotalPrice":2000},{"RoomNo":501,"BoughtThingsName":"Tv","BoughtBy":"Emp03","BoughtDate":"2022-12-12T00:00:00","TotalPrice":30000}]

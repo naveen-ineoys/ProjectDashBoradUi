@@ -1,0 +1,264 @@
+﻿* {
+    font-weight: bold;
+    font-family: Helvetica, Arial, sans-serif;
+}
+.main-div {
+    margin-left: 0.625rem;
+}
+.day-changer {
+    width: 100%;
+    height: 6.25rem;
+    letter-spacing: 0.063rem;
+    font-weight: bold;
+    
+}
+
+.date {
+    
+    height: 9.375rem;
+   
+    border-radius:0.313rem;
+    background-color: #fafafa !important;
+    box-shadow: 0 0 5px 5px #dededf;
+}
+.date-name {
+    color: #7f8c8d;
+    font-size: 0.938rem;
+    letter-spacing: 0.063rem;
+    font-weight: bold;
+}
+.tdy-date {
+    color: #839192;
+    font-size: 2.813rem;
+    letter-spacing: 0.094rem;
+    font-weight: bold;
+}
+.month-name {
+    color: #b2babb;
+    font-size: 1.563rem;
+    letter-spacing:0.063rem ;
+    font-weight: bold;
+}
+.date-name ,.tdy-date,.month-name{
+    margin-left: 0.625rem;
+}
+.chart {
+    height: 25rem;
+    background-color: #fafafa !important;
+    border-radius: 0.313rem;
+    box-shadow: 0 0 5px 5px #dededf;
+}
+canvas {
+    max-width: 9.375rem; /* Adjust chart size */
+    max-height: 9.375rem;
+}
+.right-side{
+    width:20%;
+}
+.left-side {
+    width: 80%;
+    margin-left: 1.875rem;
+    border-radius: 0.313rem;
+    background-color: #fafafa !important;
+    box-shadow: 0 0 5px 5px #dededf;
+}
+.table-data {
+    overflow-x: hidden;
+    overflow-y: auto;
+    height: 25rem;
+}
+.status-div {
+    border: 2px solid #dededf;
+    border-radius: 0.625rem;
+    background-color: #ffffff !important;
+    margin-left:3px;
+}
+.counts {
+    color: #839192;
+    font-size: 1.25rem;
+    letter-spacing: 0.094rem;
+    font-weight: bold;
+    margin-left: 0.313rem;
+}
+    .counts .icon {
+        font-size: 0.5rem;
+        margin-top: 0.188rem;
+    }
+.status-name {
+    color: #b2babb;
+    font-size: 0.75rem;
+    letter-spacing: 1px;
+    font-weight: bold;
+}
+
+.status-div:has(> .status-name .form-check-input-month:checked) {
+    background-color: #fafafa !important;
+    box-shadow: 0 0 3px 3px #36A2EB;
+}
+.chart-grap {
+    width: 12.5rem;
+    height: 12.5rem;
+}
+.form-check-input-month {
+    display: none;
+}
+
+
+
+
+
+
+
+.dashboard-card {
+    border-radius: 0.625rem;
+    padding: 1.25rem;
+    background: white;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.activity-card {
+    background: white;
+    border-radius: 0.625rem;
+    padding: 1.25rem;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.status-btn {
+    border-radius: 1.25rem;
+    font-weight: bold;
+}
+
+.table-container {
+    background: white;
+    border-radius: 0.625rem;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+}
+
+.table-header .table-row {
+    background: #f1f3f5;
+    font-weight: bold;
+    border: 2px solid #dededf;
+    border-radius: 3.125rem;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.table-body {
+    max-height: 18.75rem;
+    overflow-y: auto;
+}
+
+.guest-list tbody tr {
+    border-bottom: 1px solid #dee2e6;
+}
+
+.icon-btn {
+    background: none;
+    border: none;
+    font-size: 1.2rem;
+    color: gray;
+    cursor: pointer;
+}
+
+
+
+@media (min-width: 576px) and (max-width:768px) {
+    .right-side {
+        width: 100%;
+    }
+
+    .left-side {
+        width: 100%;
+        margin-left: -0.625rem;
+    }
+
+    .chart {
+        width: 18.75rem;
+        height: 9.375rem;
+        background-color: #fafafa !important;
+        box-shadow: 0 0 5px 5px #dededf;
+    }
+    .table-data {
+        overflow-x: hidden;
+        overflow-y: auto;
+        height: 15.625rem;
+    }
+}
+@media (max-width:575.98px)
+{
+    .right-side {
+        width: 100%;
+    }
+
+    .left-side {
+        width: 100%;
+        margin-top: 1.25rem;
+        margin-left: -0.625rem;
+    }
+    .date {
+        width: 30%;
+        height: 6.25rem;
+        border-radius: 0.313rem;
+        background-color: #fafafa;
+        box-shadow: 0 0 5px 5px #dededf;
+    }
+    .date-name {
+        color: #7f8c8d;
+        font-size: 0.5rem;
+        letter-spacing: 0.063rem;
+        font-weight: bold;
+    }
+    .tdy-date {
+        color: #839192;
+        font-size: 1.625rem;
+        letter-spacing: 0.094rem;
+        font-weight: bold;
+    }
+    .month-name {
+        color: #b2babb;
+        font-size: 1rem;
+        letter-spacing: 0.063rem;
+        font-weight: bold;
+    }
+    .chart {
+        width: 65%;
+        height: 6.25rem;
+        background-color: #fafafa !important;
+        border-radius: 0.313rem;
+        box-shadow: 0 0 5px 5px #dededf;
+    }
+        .chart ul li {
+            font-size: 0.625rem;
+        }
+    
+}
+ 
+/*
+Day Changer*/
+.prevDate, .nextDate {
+    width: 25px;
+    height: 25px;
+    padding: 0 0px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #FFFFFFFF; /* white */
+    background: #E4E6EAFF;
+    opacity: 1;
+    border: none;
+    border-radius: 23px;
+    gap: 0px;
+}
+.middle-content {
+    width: 100px;
+    height: 35px;
+    background: #E4E6EAFF;
+    border-radius: 23px;
+    border-width: 1px;
+    border-color: #E4E6EAFF;
+    border-style: solid;
+    box-shadow: 0px 0px 1px #171a1f12, 0px 0px 2px #171a1f1F; /* shadow-xs */
+}
+.middle-content p{
+    font-size:12px;
+}

@@ -1,0 +1,1 @@
+[{"BookingId":"Ab1234","CustomerName":"Naveen","ClientId":"xyz0987","RoomNo":202,"CheckInDate":"2024-12-12T00:00:00","CheckOutDate":"2024-12-14T00:00:00"},{"BookingId":"Ab1231","CustomerName":"Jerry","ClientId":"xyz0981","RoomNo":203,"CheckInDate":"2024-11-12T00:00:00","CheckOutDate":"2024-11-14T00:00:00"}]

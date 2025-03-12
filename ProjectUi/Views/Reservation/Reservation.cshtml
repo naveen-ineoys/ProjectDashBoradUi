@@ -1,0 +1,727 @@
+﻿
+<style>
+    * {
+        font-weight: bold;
+        font-family: Helvetica, Arial, sans-serif;
+    }
+    .reservation-main-div{
+       
+        background: #DFDFDFFF;
+        border-radius: 0px;
+        box-shadow: 0px 0px 1px #171a1f12, 0px 0px 2px #171a1f1F; /* shadow-xs */
+    }
+
+    .header{
+        background: #DFDFDFFF;
+        border-radius: 0px;
+        box-shadow: 0px 0px 1px #171a1f12, 0px 0px 2px #171a1f1F;
+    }
+
+    .btn-reservation{
+        background: #EF7F1BFF;
+        border-radius: 4px; /* border-s */
+        border-width: 1px;
+        border-color: #DFDFDFFF;
+        border-style: solid;
+        box-shadow: 0px 0px 1px #171a1f12, 0px 0px 2px #171a1f1F;
+    }
+
+    .container1-head, .container2-head, .container-bottom-right-head, .container-bottom-left-head {
+        background: #F2F7F7FF;
+        border-radius: 0px;
+        border-width: 1px;
+        border-color: #F2F7F7FF;
+        border-style: solid;
+        box-shadow: 0px 0px 1px #171a1f12, 0px 0px 2px #171a1f1F;
+    }
+
+    .container1-data, .container2-data ,.container-bottom-right-data{
+        background: #FEFFFEFF;
+        border-radius: 0px;
+        border-width: 1px;
+        border-color: #FEFFFEFF;
+        border-style: solid;
+        box-shadow: 0px 0px 1px #171a1f12, 0px 0px 2px #171a1f1F;
+    }
+
+        .container1-data input, .container2-data input, .container-bottom-right-data input{
+        width:90%;
+            border: none;
+            border-bottom: 2px solid #ccc;
+            border-radius: 0;
+            box-shadow: none;
+    }
+
+            .container1-data input::placeholder, .container2-data input::placeholder, .container-bottom-right-data input::placeholder {
+                color: #c2b9b9;
+                font-size: 14px;
+        }
+
+        .container1-data input:focus {
+                outline: none;
+             
+        }
+
+        .container1-data label, .container2-data label, .container-bottom-right-data label {
+            color: #c2b9b9;
+            font-size: 10px;
+            
+}
+
+    .container1-data-text{
+        color: #c2b9b9;
+        font-size: 10px;
+        margin-left:22px;
+    }
+    .room-info{
+        border:none;
+        border-right:1px solid black;
+        border-left: 1px solid black;
+    
+    }
+
+    .occupant-info{
+        border:none;
+        border-right: 1px solid black;
+    }
+    .first-inside-table {
+        font-size:10px;
+    }
+
+    .second-inside-table {
+        font-size: 10px;
+    }
+</style>
+
+<div class="container-fluid reservation-main-div p-2">
+
+    <div class="container-fluid header"> 
+        <div class="row justify-content-between">
+           <div class="col d-flex justify-content-between p-3">
+                <p>Reservation</p>
+                <button class="btn btn-reservation">view reservation</button>
+           </div>
+           
+        </div>
+    </div>
+    <div class="container-fluid">
+        <div class="row ">
+           <div class="col container1-head mt-2">
+                <p class="mt-2">RESERVATION DETAIL</p>
+           </div>
+        </div>
+        <div class="row container1-data p-2">
+            <div class="col-3">
+
+                <div class="mt-3">
+                    <div>
+                        <label>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-calendar-event" viewBox="0 0 16 16">
+                                <path d="M11 6.5a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5z" />
+                                <path d="M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5M1 4v10a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V4z" />
+                            </svg>
+                        </label>
+                        <input type="text" name="name" value="" onfocus="this.type='date'" onblur="if(this.value==='') this.type='text'" placeholder="CheckOut" />
+                    </div>
+                </div>
+                <div class="mt-1">
+                  
+                    <div class="container1-data-text">
+                        <span>Booking source</span>
+                    </div>
+                    <div class="d-flex">
+                        <label>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-globe-americas" viewBox="0 0 16 16">
+                                <path d="M8 0a8 8 0 1 0 0 16A8 8 0 0 0 8 0M2.04 4.326c.325 1.329 2.532 2.54 3.717 3.19.48.263.793.434.743.484q-.121.12-.242.234c-.416.396-.787.749-.758 1.266.035.634.618.824 1.214 1.017.577.188 1.168.38 1.286.983.082.417-.075.988-.22 1.52-.215.782-.406 1.48.22 1.48 1.5-.5 3.798-3.186 4-5 .138-1.243-2-2-3.5-2.5-.478-.16-.755.081-.99.284-.172.15-.322.279-.51.216-.445-.148-2.5-2-1.5-2.5.78-.39.952-.171 1.227.182.078.099.163.208.273.318.609.304.662-.132.723-.633.039-.322.081-.671.277-.867.434-.434 1.265-.791 2.028-1.12.712-.306 1.365-.587 1.579-.88A7 7 0 1 1 2.04 4.327Z" />
+                            </svg>
+                        </label>
+                        <input type="text" name="name" value="" placeholder="eg. TCS" />
+                    </div>
+                </div>
+                <div class="mt-1">
+
+                    <div class="container1-data-text">
+                        <span>GSTINO</span>
+                    </div>
+                    <div class="d-flex">
+                        <label>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-bookmark" viewBox="0 0 16 16">
+                                <path d="M2 2a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v13.5a.5.5 0 0 1-.777.416L8 13.101l-5.223 2.815A.5.5 0 0 1 2 15.5zm2-1a1 1 0 0 0-1 1v12.566l4.723-2.482a.5.5 0 0 1 .554 0L13 14.566V2a1 1 0 0 0-1-1z" />
+                            </svg>
+                        </label>
+                        <input type="text" name="name" value="" placeholder="__-________-_-__" />
+                    </div>
+                </div>
+                <div class="mt-1">
+
+                    <div class="container1-data-text">
+                        <span>
+                            Department
+                        </span>
+                    </div>
+                    <div class="d-flex">
+                        <label>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-person-circle" viewBox="0 0 16 16">
+                                <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0" />
+                                <path fill-rule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8m8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1" />
+                            </svg>
+                        </label>
+                        <input type="text" name="name" value="" placeholder="choose department" />
+                    </div>
+                </div>
+
+            </div>
+            <div class="col-3">
+                <div class="mt-3">
+                    <div>
+                        <label>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-calendar-event" viewBox="0 0 16 16">
+                                <path d="M11 6.5a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5z" />
+                                <path d="M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5M1 4v10a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V4z" />
+                            </svg>
+                        </label>
+                        <input type="text" name="name" value="" onfocus="this.type='date'" onblur="if(this.value==='') this.type='text'" placeholder="CheckOut" />
+                    </div>
+                </div>
+                <div class="mt-3">
+                    <div>
+                        <label>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-body-text" viewBox="0 0 16 16">
+                                <path fill-rule="evenodd" d="M0 .5A.5.5 0 0 1 .5 0h4a.5.5 0 0 1 0 1h-4A.5.5 0 0 1 0 .5m0 2A.5.5 0 0 1 .5 2h7a.5.5 0 0 1 0 1h-7a.5.5 0 0 1-.5-.5m9 0a.5.5 0 0 1 .5-.5h5a.5.5 0 0 1 0 1h-5a.5.5 0 0 1-.5-.5m-9 2A.5.5 0 0 1 .5 4h3a.5.5 0 0 1 0 1h-3a.5.5 0 0 1-.5-.5m5 0a.5.5 0 0 1 .5-.5h5a.5.5 0 0 1 0 1h-5a.5.5 0 0 1-.5-.5m7 0a.5.5 0 0 1 .5-.5h3a.5.5 0 0 1 0 1h-3a.5.5 0 0 1-.5-.5m-12 2A.5.5 0 0 1 .5 6h6a.5.5 0 0 1 0 1h-6a.5.5 0 0 1-.5-.5m8 0a.5.5 0 0 1 .5-.5h5a.5.5 0 0 1 0 1h-5a.5.5 0 0 1-.5-.5m-8 2A.5.5 0 0 1 .5 8h5a.5.5 0 0 1 0 1h-5a.5.5 0 0 1-.5-.5m7 0a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7a.5.5 0 0 1-.5-.5m-7 2a.5.5 0 0 1 .5-.5h8a.5.5 0 0 1 0 1h-8a.5.5 0 0 1-.5-.5m0 2a.5.5 0 0 1 .5-.5h4a.5.5 0 0 1 0 1h-4a.5.5 0 0 1-.5-.5m0 2a.5.5 0 0 1 .5-.5h2a.5.5 0 0 1 0 1h-2a.5.5 0 0 1-.5-.5" />
+                            </svg>
+                        </label>
+                        <input type="text" name="name" value="" placeholder="Booking Source No" />
+                    </div>
+                </div>
+                <div class="mt-3">
+                    <div>
+                        <label>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-body-text" viewBox="0 0 16 16">
+                                <path fill-rule="evenodd" d="M0 .5A.5.5 0 0 1 .5 0h4a.5.5 0 0 1 0 1h-4A.5.5 0 0 1 0 .5m0 2A.5.5 0 0 1 .5 2h7a.5.5 0 0 1 0 1h-7a.5.5 0 0 1-.5-.5m9 0a.5.5 0 0 1 .5-.5h5a.5.5 0 0 1 0 1h-5a.5.5 0 0 1-.5-.5m-9 2A.5.5 0 0 1 .5 4h3a.5.5 0 0 1 0 1h-3a.5.5 0 0 1-.5-.5m5 0a.5.5 0 0 1 .5-.5h5a.5.5 0 0 1 0 1h-5a.5.5 0 0 1-.5-.5m7 0a.5.5 0 0 1 .5-.5h3a.5.5 0 0 1 0 1h-3a.5.5 0 0 1-.5-.5m-12 2A.5.5 0 0 1 .5 6h6a.5.5 0 0 1 0 1h-6a.5.5 0 0 1-.5-.5m8 0a.5.5 0 0 1 .5-.5h5a.5.5 0 0 1 0 1h-5a.5.5 0 0 1-.5-.5m-8 2A.5.5 0 0 1 .5 8h5a.5.5 0 0 1 0 1h-5a.5.5 0 0 1-.5-.5m7 0a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7a.5.5 0 0 1-.5-.5m-7 2a.5.5 0 0 1 .5-.5h8a.5.5 0 0 1 0 1h-8a.5.5 0 0 1-.5-.5m0 2a.5.5 0 0 1 .5-.5h4a.5.5 0 0 1 0 1h-4a.5.5 0 0 1-.5-.5m0 2a.5.5 0 0 1 .5-.5h2a.5.5 0 0 1 0 1h-2a.5.5 0 0 1-.5-.5" />
+                            </svg>
+                        </label>
+                        <input type="text" name="name" value="" placeholder="Remarks" />
+                    </div>
+                </div>
+                <div class="mt-3">
+                    <div>
+                        <label>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-body-text" viewBox="0 0 16 16">
+                                <path fill-rule="evenodd" d="M0 .5A.5.5 0 0 1 .5 0h4a.5.5 0 0 1 0 1h-4A.5.5 0 0 1 0 .5m0 2A.5.5 0 0 1 .5 2h7a.5.5 0 0 1 0 1h-7a.5.5 0 0 1-.5-.5m9 0a.5.5 0 0 1 .5-.5h5a.5.5 0 0 1 0 1h-5a.5.5 0 0 1-.5-.5m-9 2A.5.5 0 0 1 .5 4h3a.5.5 0 0 1 0 1h-3a.5.5 0 0 1-.5-.5m5 0a.5.5 0 0 1 .5-.5h5a.5.5 0 0 1 0 1h-5a.5.5 0 0 1-.5-.5m7 0a.5.5 0 0 1 .5-.5h3a.5.5 0 0 1 0 1h-3a.5.5 0 0 1-.5-.5m-12 2A.5.5 0 0 1 .5 6h6a.5.5 0 0 1 0 1h-6a.5.5 0 0 1-.5-.5m8 0a.5.5 0 0 1 .5-.5h5a.5.5 0 0 1 0 1h-5a.5.5 0 0 1-.5-.5m-8 2A.5.5 0 0 1 .5 8h5a.5.5 0 0 1 0 1h-5a.5.5 0 0 1-.5-.5m7 0a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7a.5.5 0 0 1-.5-.5m-7 2a.5.5 0 0 1 .5-.5h8a.5.5 0 0 1 0 1h-8a.5.5 0 0 1-.5-.5m0 2a.5.5 0 0 1 .5-.5h4a.5.5 0 0 1 0 1h-4a.5.5 0 0 1-.5-.5m0 2a.5.5 0 0 1 .5-.5h2a.5.5 0 0 1 0 1h-2a.5.5 0 0 1-.5-.5" />
+                            </svg>
+                        </label>
+                        <input type="text" name="name" value="" placeholder="Budget Code" />
+                    </div>
+                </div>
+            </div>
+            <div class="col-3">
+                <div class=" ">
+                    <div class="container1-data-text">
+                        <span>Time Formate</span>
+                    </div>
+                    <div class="d-flex">
+                        <label>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-globe-americas" viewBox="0 0 16 16">
+                                <path d="M8 0a8 8 0 1 0 0 16A8 8 0 0 0 8 0M2.04 4.326c.325 1.329 2.532 2.54 3.717 3.19.48.263.793.434.743.484q-.121.12-.242.234c-.416.396-.787.749-.758 1.266.035.634.618.824 1.214 1.017.577.188 1.168.38 1.286.983.082.417-.075.988-.22 1.52-.215.782-.406 1.48.22 1.48 1.5-.5 3.798-3.186 4-5 .138-1.243-2-2-3.5-2.5-.478-.16-.755.081-.99.284-.172.15-.322.279-.51.216-.445-.148-2.5-2-1.5-2.5.78-.39.952-.171 1.227.182.078.099.163.208.273.318.609.304.662-.132.723-.633.039-.322.081-.671.277-.867.434-.434 1.265-.791 2.028-1.12.712-.306 1.365-.587 1.579-.88A7 7 0 1 1 2.04 4.327Z" />
+                            </svg>
+                        </label>
+                        <input type="text" name="name" value="" placeholder="24hrs" />
+                    </div>
+                </div>
+                <div class="mt-3">
+                    <div>
+                        <label>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-body-text" viewBox="0 0 16 16">
+                                <path fill-rule="evenodd" d="M0 .5A.5.5 0 0 1 .5 0h4a.5.5 0 0 1 0 1h-4A.5.5 0 0 1 0 .5m0 2A.5.5 0 0 1 .5 2h7a.5.5 0 0 1 0 1h-7a.5.5 0 0 1-.5-.5m9 0a.5.5 0 0 1 .5-.5h5a.5.5 0 0 1 0 1h-5a.5.5 0 0 1-.5-.5m-9 2A.5.5 0 0 1 .5 4h3a.5.5 0 0 1 0 1h-3a.5.5 0 0 1-.5-.5m5 0a.5.5 0 0 1 .5-.5h5a.5.5 0 0 1 0 1h-5a.5.5 0 0 1-.5-.5m7 0a.5.5 0 0 1 .5-.5h3a.5.5 0 0 1 0 1h-3a.5.5 0 0 1-.5-.5m-12 2A.5.5 0 0 1 .5 6h6a.5.5 0 0 1 0 1h-6a.5.5 0 0 1-.5-.5m8 0a.5.5 0 0 1 .5-.5h5a.5.5 0 0 1 0 1h-5a.5.5 0 0 1-.5-.5m-8 2A.5.5 0 0 1 .5 8h5a.5.5 0 0 1 0 1h-5a.5.5 0 0 1-.5-.5m7 0a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7a.5.5 0 0 1-.5-.5m-7 2a.5.5 0 0 1 .5-.5h8a.5.5 0 0 1 0 1h-8a.5.5 0 0 1-.5-.5m0 2a.5.5 0 0 1 .5-.5h4a.5.5 0 0 1 0 1h-4a.5.5 0 0 1-.5-.5m0 2a.5.5 0 0 1 .5-.5h2a.5.5 0 0 1 0 1h-2a.5.5 0 0 1-.5-.5" />
+                            </svg>
+                        </label>
+                        <input type="text" name="name" value="" placeholder="Booking Source No" />
+                    </div>
+                </div>
+                <div class="mt-3">
+                    <div>
+                        <label>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-receipt" viewBox="0 0 16 16">
+                                <path d="M1.92.506a.5.5 0 0 1 .434.14L3 1.293l.646-.647a.5.5 0 0 1 .708 0L5 1.293l.646-.647a.5.5 0 0 1 .708 0L7 1.293l.646-.647a.5.5 0 0 1 .708 0L9 1.293l.646-.647a.5.5 0 0 1 .708 0l.646.647.646-.647a.5.5 0 0 1 .708 0l.646.647.646-.647a.5.5 0 0 1 .801.13l.5 1A.5.5 0 0 1 15 2v12a.5.5 0 0 1-.053.224l-.5 1a.5.5 0 0 1-.8.13L13 14.707l-.646.647a.5.5 0 0 1-.708 0L11 14.707l-.646.647a.5.5 0 0 1-.708 0L9 14.707l-.646.647a.5.5 0 0 1-.708 0L7 14.707l-.646.647a.5.5 0 0 1-.708 0L5 14.707l-.646.647a.5.5 0 0 1-.708 0L3 14.707l-.646.647a.5.5 0 0 1-.801-.13l-.5-1A.5.5 0 0 1 1 14V2a.5.5 0 0 1 .053-.224l.5-1a.5.5 0 0 1 .367-.27m.217 1.338L2 2.118v11.764l.137.274.51-.51a.5.5 0 0 1 .707 0l.646.647.646-.646a.5.5 0 0 1 .708 0l.646.646.646-.646a.5.5 0 0 1 .708 0l.646.646.646-.646a.5.5 0 0 1 .708 0l.646.646.646-.646a.5.5 0 0 1 .708 0l.646.646.646-.646a.5.5 0 0 1 .708 0l.509.509.137-.274V2.118l-.137-.274-.51.51a.5.5 0 0 1-.707 0L12 1.707l-.646.647a.5.5 0 0 1-.708 0L10 1.707l-.646.647a.5.5 0 0 1-.708 0L8 1.707l-.646.647a.5.5 0 0 1-.708 0L6 1.707l-.646.647a.5.5 0 0 1-.708 0L4 1.707l-.646.647a.5.5 0 0 1-.708 0z" />
+                                <path d="M3 4.5a.5.5 0 0 1 .5-.5h6a.5.5 0 1 1 0 1h-6a.5.5 0 0 1-.5-.5m0 2a.5.5 0 0 1 .5-.5h6a.5.5 0 1 1 0 1h-6a.5.5 0 0 1-.5-.5m0 2a.5.5 0 0 1 .5-.5h6a.5.5 0 1 1 0 1h-6a.5.5 0 0 1-.5-.5m0 2a.5.5 0 0 1 .5-.5h6a.5.5 0 0 1 0 1h-6a.5.5 0 0 1-.5-.5m8-6a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 0 1h-1a.5.5 0 0 1-.5-.5m0 2a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 0 1h-1a.5.5 0 0 1-.5-.5m0 2a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 0 1h-1a.5.5 0 0 1-.5-.5m0 2a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 0 1h-1a.5.5 0 0 1-.5-.5" />
+                            </svg>
+                        </label>
+                        <input type="text" name="name" value="" placeholder="Purchase Order" />
+                    </div>
+                </div>
+                <div class="mt-3">
+                   @* @*  <div class="d-flex">
+                        <input type="checkbox" id="tax" name="tax" checked />
+                        <label for="tax">Without Tax</label>
+                    </div> *@ 
+                </div>
+            </div>
+            <div class="col-3">
+                <div class="mt-3">
+                    <div>
+                        <label>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-calendar-event" viewBox="0 0 16 16">
+                                <path d="M11 6.5a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5z" />
+                                <path d="M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5M1 4v10a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V4z" />
+                            </svg>
+                        </label>
+                        <input type="text" name="name" value="" onfocus="this.type='date'" onblur="if(this.value==='') this.type='text'" placeholder="CheckOut" />
+                    </div>
+                </div>
+                <div class="mt-3">
+                    <div>
+                        <label>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-body-text" viewBox="0 0 16 16">
+                                <path fill-rule="evenodd" d="M0 .5A.5.5 0 0 1 .5 0h4a.5.5 0 0 1 0 1h-4A.5.5 0 0 1 0 .5m0 2A.5.5 0 0 1 .5 2h7a.5.5 0 0 1 0 1h-7a.5.5 0 0 1-.5-.5m9 0a.5.5 0 0 1 .5-.5h5a.5.5 0 0 1 0 1h-5a.5.5 0 0 1-.5-.5m-9 2A.5.5 0 0 1 .5 4h3a.5.5 0 0 1 0 1h-3a.5.5 0 0 1-.5-.5m5 0a.5.5 0 0 1 .5-.5h5a.5.5 0 0 1 0 1h-5a.5.5 0 0 1-.5-.5m7 0a.5.5 0 0 1 .5-.5h3a.5.5 0 0 1 0 1h-3a.5.5 0 0 1-.5-.5m-12 2A.5.5 0 0 1 .5 6h6a.5.5 0 0 1 0 1h-6a.5.5 0 0 1-.5-.5m8 0a.5.5 0 0 1 .5-.5h5a.5.5 0 0 1 0 1h-5a.5.5 0 0 1-.5-.5m-8 2A.5.5 0 0 1 .5 8h5a.5.5 0 0 1 0 1h-5a.5.5 0 0 1-.5-.5m7 0a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7a.5.5 0 0 1-.5-.5m-7 2a.5.5 0 0 1 .5-.5h8a.5.5 0 0 1 0 1h-8a.5.5 0 0 1-.5-.5m0 2a.5.5 0 0 1 .5-.5h4a.5.5 0 0 1 0 1h-4a.5.5 0 0 1-.5-.5m0 2a.5.5 0 0 1 .5-.5h2a.5.5 0 0 1 0 1h-2a.5.5 0 0 1-.5-.5" />
+                            </svg>
+                        </label>
+                        <input type="text" name="name" value="" placeholder="Purpose of Visit" />
+                    </div>
+                </div>
+                <div class="mt-3">
+                    <div>
+                        <label>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-phone-landscape" viewBox="0 0 16 16">
+                                <path d="M1 4.5a1 1 0 0 1 1-1h12a1 1 0 0 1 1 1v6a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1zm-1 6a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-6a2 2 0 0 0-2-2H2a2 2 0 0 0-2 2z" />
+                                <path d="M14 7.5a1 1 0 1 0-2 0 1 1 0 0 0 2 0" />
+                            </svg>
+                        </label>
+                        <input type="text" name="name" value="" placeholder="Rendal Mode" />
+                    </div>
+                </div>
+                <div class="mt-3">
+                    <div>
+                        @* <div class="d-flex">
+                            <input type="checkbox" id="scales" name="hourly" checked />
+                            <label for="hourly">Is Hourly Booking</label>
+                        </div> *@
+                       
+                    </div>
+                </div>
+
+            </div>
+
+
+        </div>
+    </div>
+    <div class="container-fluid mt-3">
+        <div class="row   justify-content-between">          
+                <div class="col-12 d-flex justify-content-between container2-head p-2">
+                    <p>ROOM DETAIL</p>
+                    <p class="text text-uppercase mt-2">Reload available  Rooms if date changed</p>
+                </div>
+        </div>
+        <div class="row container2-data p-1">
+          
+             <div class="col-1">
+                 S.No
+             </div>
+              <div class="col-3 room-info">
+                  Room Info
+              </div>
+               <div class="col-3 occupant-info">
+                   Occupant Info
+               </div>
+            <div class="col-4 occupant-info">
+                Inclusive Of Tax
+            </div>
+             <div class="col-1">
+                 Action
+             </div>
+        </div>
+        <div class="row container2-data p-1">
+
+            <div class="col-1">
+               1
+            </div>
+            <div class="col-3 room-info">
+                <div class="mt-1">
+                    <div class="container1-data-text">
+                        <span>Room Type</span>
+                    </div>
+                    <div class="d-flex">
+                        <label>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-globe-americas" viewBox="0 0 16 16">
+                                <path d="M8 0a8 8 0 1 0 0 16A8 8 0 0 0 8 0M2.04 4.326c.325 1.329 2.532 2.54 3.717 3.19.48.263.793.434.743.484q-.121.12-.242.234c-.416.396-.787.749-.758 1.266.035.634.618.824 1.214 1.017.577.188 1.168.38 1.286.983.082.417-.075.988-.22 1.52-.215.782-.406 1.48.22 1.48 1.5-.5 3.798-3.186 4-5 .138-1.243-2-2-3.5-2.5-.478-.16-.755.081-.99.284-.172.15-.322.279-.51.216-.445-.148-2.5-2-1.5-2.5.78-.39.952-.171 1.227.182.078.099.163.208.273.318.609.304.662-.132.723-.633.039-.322.081-.671.277-.867.434-.434 1.265-.791 2.028-1.12.712-.306 1.365-.587 1.579-.88A7 7 0 1 1 2.04 4.327Z" />
+                            </svg>
+                        </label>
+                        <input type="text" name="name" value="" placeholder="eg. Dulex single" />
+                    </div>
+                </div>
+                <div class="mt-1">
+                    <div class="container1-data-text">
+                        <span>Room Type</span>
+                    </div>
+                    <div class="d-flex">
+                        <label>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-globe-americas" viewBox="0 0 16 16">
+                                <path d="M8 0a8 8 0 1 0 0 16A8 8 0 0 0 8 0M2.04 4.326c.325 1.329 2.532 2.54 3.717 3.19.48.263.793.434.743.484q-.121.12-.242.234c-.416.396-.787.749-.758 1.266.035.634.618.824 1.214 1.017.577.188 1.168.38 1.286.983.082.417-.075.988-.22 1.52-.215.782-.406 1.48.22 1.48 1.5-.5 3.798-3.186 4-5 .138-1.243-2-2-3.5-2.5-.478-.16-.755.081-.99.284-.172.15-.322.279-.51.216-.445-.148-2.5-2-1.5-2.5.78-.39.952-.171 1.227.182.078.099.163.208.273.318.609.304.662-.132.723-.633.039-.322.081-.671.277-.867.434-.434 1.265-.791 2.028-1.12.712-.306 1.365-.587 1.579-.88A7 7 0 1 1 2.04 4.327Z" />
+                            </svg>
+                        </label>
+                        <input type="text" name="name" value="" placeholder="eg. Dulex single" />
+                    </div>
+                </div>
+                <div class="mt-1">
+                    <div class="container1-data-text">
+                        <span>Room Type</span>
+                    </div>
+                    <div class="d-flex">
+                        <label>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-globe-americas" viewBox="0 0 16 16">
+                                <path d="M8 0a8 8 0 1 0 0 16A8 8 0 0 0 8 0M2.04 4.326c.325 1.329 2.532 2.54 3.717 3.19.48.263.793.434.743.484q-.121.12-.242.234c-.416.396-.787.749-.758 1.266.035.634.618.824 1.214 1.017.577.188 1.168.38 1.286.983.082.417-.075.988-.22 1.52-.215.782-.406 1.48.22 1.48 1.5-.5 3.798-3.186 4-5 .138-1.243-2-2-3.5-2.5-.478-.16-.755.081-.99.284-.172.15-.322.279-.51.216-.445-.148-2.5-2-1.5-2.5.78-.39.952-.171 1.227.182.078.099.163.208.273.318.609.304.662-.132.723-.633.039-.322.081-.671.277-.867.434-.434 1.265-.791 2.028-1.12.712-.306 1.365-.587 1.579-.88A7 7 0 1 1 2.04 4.327Z" />
+                            </svg>
+                        </label>
+                        <input type="text" name="name" value="" placeholder="eg. Dulex single" />
+                    </div>
+                </div>
+                <div class="mt-1">
+
+
+                    <div class="d-flex">
+
+                        <div> <input type="text" name="name" value="" placeholder="# Adult" /></div>
+                        <div> <input type="text" name="name" value="" placeholder="# Children" /></div>
+
+                    </div>
+
+                </div>
+
+            </div>
+            <div class="col-3 occupant-info">
+                <table class="table table-borderless table-responsive first-inside-table">
+                    <tr>
+                        <th>Pri name</th>
+                        <th>Mobile No</th>
+                        <th>action</th>
+                    </tr>
+                </table>
+            </div>
+            <div class="col-4 occupant-info">
+                <table class="table second-inside-table table-responsive">
+                    <tr>
+                        <th>From Date</th>
+                        <th>To Date</th>
+                        <th>Rent(Tax Exo)</th>
+                        <th>actiion</th>
+                    </tr>
+                    <tr>
+                        <td><input type="date" name="name" value="" /></td>
+                        <td><input type="date" name="name" value="" /></td>
+                        <td><input type="text" name="name" value="" /></td>
+                     @*    <td>
+                            <span>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-plus-circle" viewBox="0 0 16 16">
+                                    <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14m0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16" />
+                                    <path d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4" />
+                                </svg>
+                            </span>
+                        </td> *@
+                    </tr>
+                </table>
+            </div>
+            <div class="col-1">
+                <span>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-trash-fill" viewBox="0 0 16 16">
+                        <path d="M2.5 1a1 1 0 0 0-1 1v1a1 1 0 0 0 1 1H3v9a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V4h.5a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H10a1 1 0 0 0-1-1H7a1 1 0 0 0-1 1zm3 4a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 .5-.5M8 5a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7A.5.5 0 0 1 8 5m3 .5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 1 0" />
+                    </svg>
+                </span>
+            </div>
+        </div>
+        <div class="row container2-data p-2">
+
+            <div class="col-1">
+                
+            </div>
+            <div class="col-6 d-flex occupant-info">
+                <div class="d-flex justify-content-between">
+                    <input type="date" name="name" value="" />
+                    <input type="date" name="name" value="" />
+                </div>
+                <div class="d-flex justify-content-between">
+                    <input type="text" name="name" placeholder="#Bed" value="" />
+                    <input type="text" name="name" placeholder="amount" value="" />
+                </div>
+                <div class="d-flex justify-content-between">
+                    <input type="text" name="name" placeholder="#children" value="" />
+                    <input type="text" name="name" placeholder="amount" value="" />
+                </div>
+                <div class="d-flex justify-content-between">
+                    <input type="text" name="name" placeholder="#person" value="" />
+                    <input type="text" name="name" placeholder="amount" value="" />
+                </div>
+            </div>
+           
+            <div class="col-4 d-flex justify-content-between occupant-info">
+                <div class="">
+                    <input type="text" name="name" placeholder="#children" value="" />
+                   
+                </div>
+                <div class="d-flex">
+                    <label>No.of.Rooms</label>
+                <input type="text" name="name" placeholder="1" value="" />
+
+            </div>
+            </div>
+            <div class="col-1">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-plus-circle" viewBox="0 0 16 16">
+                    <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14m0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16" />
+                    <path d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4" />
+                </svg>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="container-fluid mt-2">
+        <div class="row d-flex justify-content-between">
+            <div class="col-6 ">
+                <div class="container-fluid">
+                    <div class="row"> 
+                        <div class="col-12 container-bottom-right-head ">
+                            <p class="mt-2">PAYMENT DETAIL</p>
+                        </div>
+                    </div>
+                    <div class="row  container-bottom-right-data p-3">
+                        <div class="col-12 d-flex justify-content-around mt-2 ">
+                            <div class="mt-1">
+                                <div class="container1-data-text">
+                                    <span>Discount Reason</span>
+                                </div>
+                                <div class="d-flex">
+                                    <label>
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-globe-americas" viewBox="0 0 16 16">
+                                            <path d="M8 0a8 8 0 1 0 0 16A8 8 0 0 0 8 0M2.04 4.326c.325 1.329 2.532 2.54 3.717 3.19.48.263.793.434.743.484q-.121.12-.242.234c-.416.396-.787.749-.758 1.266.035.634.618.824 1.214 1.017.577.188 1.168.38 1.286.983.082.417-.075.988-.22 1.52-.215.782-.406 1.48.22 1.48 1.5-.5 3.798-3.186 4-5 .138-1.243-2-2-3.5-2.5-.478-.16-.755.081-.99.284-.172.15-.322.279-.51.216-.445-.148-2.5-2-1.5-2.5.78-.39.952-.171 1.227.182.078.099.163.208.273.318.609.304.662-.132.723-.633.039-.322.081-.671.277-.867.434-.434 1.265-.791 2.028-1.12.712-.306 1.365-.587 1.579-.88A7 7 0 1 1 2.04 4.327Z" />
+                                        </svg>
+                                    </label>
+                                    <input type="text" name="name" value="" placeholder="eg. Offer" />
+                                </div>
+                            </div>
+                            <div class="d-flex mt-3">
+                                <div >
+                                    
+                                    <div class="d-flex">
+                                        <label>
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-globe-americas" viewBox="0 0 16 16">
+                                                <path d="M8 0a8 8 0 1 0 0 16A8 8 0 0 0 8 0M2.04 4.326c.325 1.329 2.532 2.54 3.717 3.19.48.263.793.434.743.484q-.121.12-.242.234c-.416.396-.787.749-.758 1.266.035.634.618.824 1.214 1.017.577.188 1.168.38 1.286.983.082.417-.075.988-.22 1.52-.215.782-.406 1.48.22 1.48 1.5-.5 3.798-3.186 4-5 .138-1.243-2-2-3.5-2.5-.478-.16-.755.081-.99.284-.172.15-.322.279-.51.216-.445-.148-2.5-2-1.5-2.5.78-.39.952-.171 1.227.182.078.099.163.208.273.318.609.304.662-.132.723-.633.039-.322.081-.671.277-.867.434-.434 1.265-.791 2.028-1.12.712-.306 1.365-.587 1.579-.88A7 7 0 1 1 2.04 4.327Z" />
+                                            </svg>
+                                        </label>
+                                        <input type="text" name="name" value="" placeholder="Discount(Max-100%)" />
+                                    </div>
+                                </div>
+                                
+                            </div>
+
+                        </div>
+                        <div class="col-12 d-flex justify-content-around mt-3">
+                            <div class="d-flex mt-3">
+                                <div>
+
+                                    <div class="d-flex">
+                                        <label>
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-globe-americas" viewBox="0 0 16 16">
+                                                <path d="M8 0a8 8 0 1 0 0 16A8 8 0 0 0 8 0M2.04 4.326c.325 1.329 2.532 2.54 3.717 3.19.48.263.793.434.743.484q-.121.12-.242.234c-.416.396-.787.749-.758 1.266.035.634.618.824 1.214 1.017.577.188 1.168.38 1.286.983.082.417-.075.988-.22 1.52-.215.782-.406 1.48.22 1.48 1.5-.5 3.798-3.186 4-5 .138-1.243-2-2-3.5-2.5-.478-.16-.755.081-.99.284-.172.15-.322.279-.51.216-.445-.148-2.5-2-1.5-2.5.78-.39.952-.171 1.227.182.078.099.163.208.273.318.609.304.662-.132.723-.633.039-.322.081-.671.277-.867.434-.434 1.265-.791 2.028-1.12.712-.306 1.365-.587 1.579-.88A7 7 0 1 1 2.04 4.327Z" />
+                                            </svg>
+                                        </label>
+                                        <input type="text" name="name" value="" placeholder="Commission(%)" />
+                                    </div>
+                                </div>
+
+                            </div>
+                            <div class="d-flex mt-3">
+                                <div>
+
+                                    <div class="d-flex">
+                                        <label>
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-currency-rupee" viewBox="0 0 16 16">
+                                                <path d="M4 3.06h2.726c1.22 0 2.12.575 2.325 1.724H4v1.051h5.051C8.855 7.001 8 7.558 6.788 7.558H4v1.317L8.437 14h2.11L6.095 8.884h.855c2.316-.018 3.465-1.476 3.688-3.049H12V4.784h-1.345c-.08-.778-.357-1.335-.793-1.732H12V2H4z" />
+                                            </svg>
+                                        </label>
+                                        <input type="text" name="name" value="" placeholder="Commission Amt." />
+                                    </div>
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+            <div class="col-5 ">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-12 container-bottom-right-head ">
+                            <p class="mt-2">Advance DETAIL</p>
+                        </div>
+                    </div>
+                    <div class="row  container-bottom-right-data p-3 ">
+                        <div class="col-12 d-flex justify-content-around mt-2 ">
+                            <div class="">
+                                <div class="container1-data-text">
+                                    <span>Payment Mode</span>
+                                </div>
+                                <div class="d-flex">
+                                    <label>
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-globe-americas" viewBox="0 0 16 16">
+                                            <path d="M8 0a8 8 0 1 0 0 16A8 8 0 0 0 8 0M2.04 4.326c.325 1.329 2.532 2.54 3.717 3.19.48.263.793.434.743.484q-.121.12-.242.234c-.416.396-.787.749-.758 1.266.035.634.618.824 1.214 1.017.577.188 1.168.38 1.286.983.082.417-.075.988-.22 1.52-.215.782-.406 1.48.22 1.48 1.5-.5 3.798-3.186 4-5 .138-1.243-2-2-3.5-2.5-.478-.16-.755.081-.99.284-.172.15-.322.279-.51.216-.445-.148-2.5-2-1.5-2.5.78-.39.952-.171 1.227.182.078.099.163.208.273.318.609.304.662-.132.723-.633.039-.322.081-.671.277-.867.434-.434 1.265-.791 2.028-1.12.712-.306 1.365-.587 1.579-.88A7 7 0 1 1 2.04 4.327Z" />
+                                        </svg>
+                                    </label>
+                                    <input type="text" name="name" value="" placeholder="eg. cash" />
+                                </div>
+                            </div>
+                            <div class="mt-3">
+                                <div class="d-flex">
+                                    <label>
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-currency-rupee" viewBox="0 0 16 16">
+                                            <path d="M4 3.06h2.726c1.22 0 2.12.575 2.325 1.724H4v1.051h5.051C8.855 7.001 8 7.558 6.788 7.558H4v1.317L8.437 14h2.11L6.095 8.884h.855c2.316-.018 3.465-1.476 3.688-3.049H12V4.784h-1.345c-.08-.778-.357-1.335-.793-1.732H12V2H4z" />
+                                        </svg>
+                                    </label>
+                                    <input type="text" name="name" value="" placeholder="Advance Amount" />
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="col-12 mt-3">
+                            <div class="mt-3">
+                                <div>
+                                    <label>
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-body-text" viewBox="0 0 16 16">
+                                            <path fill-rule="evenodd" d="M0 .5A.5.5 0 0 1 .5 0h4a.5.5 0 0 1 0 1h-4A.5.5 0 0 1 0 .5m0 2A.5.5 0 0 1 .5 2h7a.5.5 0 0 1 0 1h-7a.5.5 0 0 1-.5-.5m9 0a.5.5 0 0 1 .5-.5h5a.5.5 0 0 1 0 1h-5a.5.5 0 0 1-.5-.5m-9 2A.5.5 0 0 1 .5 4h3a.5.5 0 0 1 0 1h-3a.5.5 0 0 1-.5-.5m5 0a.5.5 0 0 1 .5-.5h5a.5.5 0 0 1 0 1h-5a.5.5 0 0 1-.5-.5m7 0a.5.5 0 0 1 .5-.5h3a.5.5 0 0 1 0 1h-3a.5.5 0 0 1-.5-.5m-12 2A.5.5 0 0 1 .5 6h6a.5.5 0 0 1 0 1h-6a.5.5 0 0 1-.5-.5m8 0a.5.5 0 0 1 .5-.5h5a.5.5 0 0 1 0 1h-5a.5.5 0 0 1-.5-.5m-8 2A.5.5 0 0 1 .5 8h5a.5.5 0 0 1 0 1h-5a.5.5 0 0 1-.5-.5m7 0a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7a.5.5 0 0 1-.5-.5m-7 2a.5.5 0 0 1 .5-.5h8a.5.5 0 0 1 0 1h-8a.5.5 0 0 1-.5-.5m0 2a.5.5 0 0 1 .5-.5h4a.5.5 0 0 1 0 1h-4a.5.5 0 0 1-.5-.5m0 2a.5.5 0 0 1 .5-.5h2a.5.5 0 0 1 0 1h-2a.5.5 0 0 1-.5-.5" />
+                                        </svg>
+                                    </label>
+                                    <input type="text" name="name" value="" placeholder="Advance Remarks" />
+                                </div>
+                            </div>
+
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+@* <div class="col table-responsive">
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th>S.No</th>
+                <th>Room Info</th>
+                <th>Occupant Info</th>
+                <th>Inclusive of tax</th>
+                <th>Action</th>
+            </tr>
+
+        </thead>
+        <tbody>
+            <tr>
+                <td>S.No</td>
+                <td>
+                    <div class="room-info">
+                        <div class="mt-1">
+
+                            <div class="container1-data-text">
+                                <span>Room Type</span>
+                            </div>
+                            <div class="d-flex">
+                                <label>
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-globe-americas" viewBox="0 0 16 16">
+                                        <path d="M8 0a8 8 0 1 0 0 16A8 8 0 0 0 8 0M2.04 4.326c.325 1.329 2.532 2.54 3.717 3.19.48.263.793.434.743.484q-.121.12-.242.234c-.416.396-.787.749-.758 1.266.035.634.618.824 1.214 1.017.577.188 1.168.38 1.286.983.082.417-.075.988-.22 1.52-.215.782-.406 1.48.22 1.48 1.5-.5 3.798-3.186 4-5 .138-1.243-2-2-3.5-2.5-.478-.16-.755.081-.99.284-.172.15-.322.279-.51.216-.445-.148-2.5-2-1.5-2.5.78-.39.952-.171 1.227.182.078.099.163.208.273.318.609.304.662-.132.723-.633.039-.322.081-.671.277-.867.434-.434 1.265-.791 2.028-1.12.712-.306 1.365-.587 1.579-.88A7 7 0 1 1 2.04 4.327Z" />
+                                    </svg>
+                                </label>
+                                <input type="text" name="name" value="" placeholder="eg. Dulex single" />
+                            </div>
+                        </div>
+                        <div class="mt-1">
+
+                            <div class="container1-data-text">
+                                <span>Rate /Meal plan</span>
+                            </div>
+                            <div class="d-flex">
+                                <label>
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-globe-americas" viewBox="0 0 16 16">
+                                        <path d="M8 0a8 8 0 1 0 0 16A8 8 0 0 0 8 0M2.04 4.326c.325 1.329 2.532 2.54 3.717 3.19.48.263.793.434.743.484q-.121.12-.242.234c-.416.396-.787.749-.758 1.266.035.634.618.824 1.214 1.017.577.188 1.168.38 1.286.983.082.417-.075.988-.22 1.52-.215.782-.406 1.48.22 1.48 1.5-.5 3.798-3.186 4-5 .138-1.243-2-2-3.5-2.5-.478-.16-.755.081-.99.284-.172.15-.322.279-.51.216-.445-.148-2.5-2-1.5-2.5.78-.39.952-.171 1.227.182.078.099.163.208.273.318.609.304.662-.132.723-.633.039-.322.081-.671.277-.867.434-.434 1.265-.791 2.028-1.12.712-.306 1.365-.587 1.579-.88A7 7 0 1 1 2.04 4.327Z" />
+                                    </svg>
+                                </label>
+                                <input type="text" name="name" value="" placeholder="eg. TCS" />
+
+                            </div>
+
+                        </div>
+                        <div class="mt-1">
+
+                            <div class="container1-data-text">
+                                <span>Room N0</span>
+                            </div>
+                            <div class="d-flex">
+                                <label>
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-globe-americas" viewBox="0 0 16 16">
+                                        <path d="M8 0a8 8 0 1 0 0 16A8 8 0 0 0 8 0M2.04 4.326c.325 1.329 2.532 2.54 3.717 3.19.48.263.793.434.743.484q-.121.12-.242.234c-.416.396-.787.749-.758 1.266.035.634.618.824 1.214 1.017.577.188 1.168.38 1.286.983.082.417-.075.988-.22 1.52-.215.782-.406 1.48.22 1.48 1.5-.5 3.798-3.186 4-5 .138-1.243-2-2-3.5-2.5-.478-.16-.755.081-.99.284-.172.15-.322.279-.51.216-.445-.148-2.5-2-1.5-2.5.78-.39.952-.171 1.227.182.078.099.163.208.273.318.609.304.662-.132.723-.633.039-.322.081-.671.277-.867.434-.434 1.265-.791 2.028-1.12.712-.306 1.365-.587 1.579-.88A7 7 0 1 1 2.04 4.327Z" />
+                                    </svg>
+                                </label>
+                                <input type="text" name="name" value="" placeholder="eg. 100" />
+
+                            </div>
+
+                        </div>
+                        <div class="mt-1">
+
+
+                            <div class="d-flex">
+
+                                <div> <input type="text" name="name" value="" placeholder="# Adult" /></div>
+                                <div> <input type="text" name="name" value="" placeholder="# Children" /></div>
+
+                            </div>
+
+                        </div>
+                    </div>
+                </td>
+                <td>
+                    <table class="table table-borderless first-inside-table">
+                        <tr>
+                            <th>Pri name</th>
+                            <th>Mobile No</th>
+                            <th>action</th>
+                        </tr>
+                    </table>
+                </td>
+                <td>
+                    <table class="table table-striped second-inside-table">
+                        <tr>
+                            <th>From Date</th>
+                            <th>To Date</th>
+                            <th>Rent(Tax Exo)</th>
+                            <th>actiion</th>
+                        </tr>
+                        <tr>
+                            <td><input type="date" name="name" value="" /></td>
+                            <td><input type="date" name="name" value="" /></td>
+                            <td><input type="text" name="name" value="" /></td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+
+        </tbody>
+        <tfoot>
+            <tr>
+                <td>
+                    <div class="card-footer d-flex justify-content-between align-items-center">
+                        <div>
+                            <input type="checkbox" id="inclusiveTax">
+                            <label for="inclusiveTax">Inclusive of Tax?</label>
+                        </div>
+                        <div class="d-flex align-items-center">
+                            <input type="text" class="form-control me-2" placeholder="Choose Complementary">
+                            <label class="me-2">No. of Rooms *</label>
+                            <input type="number" class="form-control" value="1" min="1">
+                            <button class="btn btn-warning ms-2"><i class="fa fa-plus"></i></button>
+                        </div>
+                    </div>
+                </td>
+            </tr>
+        </tfoot>
+    </table>
+
+</div> *@

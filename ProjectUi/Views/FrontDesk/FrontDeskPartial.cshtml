@@ -1,0 +1,43 @@
+﻿@model MainModel
+
+@foreach (var item in Model.guestModals)
+{
+    <tr>
+        <td>
+            <i class="bi bi-person-circle text-primary"></i> @item.GuestName
+            <br><small class="text-muted">@item.ContactNumber</small>
+        </td>
+        <td>Standard Single - STS(@item.RoomId)</td>
+        <td>
+            <div>
+                <div>@item.CheckInDate.ToString("d") → @item.CheckOutDate.ToString("d")</div>
+
+                <div class="d-flex">
+                    <span class="badge rounded-pill bg-secondary icon">
+                        3
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-moon-fill" viewBox="0 0 16 16">
+                            <path d="M6 .278a.77.77 0 0 1 .08.858 7.2 7.2 0 0 0-.878 3.46c0 4.021 3.278 7.277 7.318 7.277q.792-.001 1.533-.16a.79.79 0 0 1 .81.316.73.73 0 0 1-.031.893A8.35 8.35 0 0 1 8.344 16C3.734 16 0 12.286 0 7.71 0 4.266 2.114 1.312 5.124.06A.75.75 0 0 1 6 .278" />
+                        </svg>
+                    </span>
+                    <span class="badge rounded-pill bg-secondary icon">
+                        3
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-person-fill" viewBox="0 0 16 16">
+                            <path d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6" />
+                        </svg>
+                    </span>
+                    <span class="badge rounded-pill bg-secondary icon">
+                        3
+                        <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" fill="currentColor" class="bi bi-person-fill" viewBox="0 0 16 16">
+                            <path d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6" />
+                        </svg>
+                    </span>
+                </div>
+            </div>
+        </td>
+        <td><button class="btn btn-primary status-btn">@item.Status</button></td>
+        <td>
+            <button class="icon-btn"><i class="bi bi-chat-left-dots"></i></button>
+            <button class="icon-btn"><i class="bi bi-credit-card"></i></button>
+        </td>
+    </tr>
+}

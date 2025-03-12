@@ -1,0 +1,383 @@
+﻿@model MainModel
+<link href="~/css/seconddashboard.css" rel="stylesheet" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+<div class="main-div">
+    <div class="container-fluid d-flex align-content-center justify-content-between day-changer mt-3">
+        <h4>Front Desk DashBoard</h4>
+        <div class="d-flex justify-content-evenly date-changer-container">
+            <div class="mt-1">
+                <button id="prevDate" class="btn btn-light prevDate">
+                    <!-- Left Arrow SVG -->
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-caret-left-fill" viewBox="0 0 16 16">
+                        <path d="m3.86 8.753 5.482 4.796c.646.566 1.658.106 1.658-.753V3.204a1 1 0 0 0-1.659-.753l-5.48 4.796a1 0 0 0 0 1.506z" />
+                    </svg>
+                </button>
+            </div>
+            <div id="dateDisplay" class="container middle-content">
+                <p id="currentDate"></p>
+                <p id="currentDay" class="ms-2"></p>
+            </div>
+            <div class="mt-1">
+                <button id="nextDate" class="btn btn-light nextDate">
+                    <!-- Right Arrow SVG -->
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-caret-right-fill" viewBox="0 0 16 16">
+                        <path d="m12.14 8.753-5.482 4.796c-.646.566-1.658.106-1.658-.753V3.204a1 0 0 1 1.659-.753l5.48 4.796a1 0 0 1 0 1.506z" />
+                    </svg>
+                </button>
+            </div>
+        </div>
+
+            
+     
+
+    </div>
+    <div class="container-fluid d-lg-flex d-md-block d-sm-block">
+        <div class="container-fluid right-side d-lg-block d-sm-flex d-flex justify-content-between justify-content-sm-between mt-lg-0">
+
+            <div class="date d-flex flex-column justify-content-center  mt-2">
+                <div id="dateName" class="date-name mt-2">@Model.currentdate.ToString("dddd")</div>
+                <div id="onlyDate" class="tdy-date">@Model.onlyDate</div>
+                <div id="monthName" class="month-name">@Model.currentdate.ToString("MMMM")</div>
+            </div>
+            <div class="chart d-lg-flex flex-lg-column d-sm-flex d-md-flex justify-content-lg-center align-items-lg-center d-flex  mt-lg-4 mt-sm-2 mt-2">
+                <canvas class="mt-2 chart-grap" id="occupancyChart" width="187" height="187" style="display: block;box-sizing: border-box;height: 200px;width: 200px;"></canvas>
+                <ul class="mt-3">
+
+                    <li style="color:#FF6384;"> @Model.Booked  Booked  @Model.BookedPercentage %</li>
+                    <li style="color: #36A2EB;"> @Model.Available Available @Model.AvailablePercentage %</li>
+                    <li style="color: #FFCE56;"> @Model.Blocked Blocked @Model.BlockedPercentage %</li>
+                </ul>
+            </div>
+        </div>
+        <div class="left-side mt-lg-0 mt-sm-3">
+            <div class="container-fluid d-flex justify-content-between ">
+                <p>Activity <span><i class="fa fa-search"></i></span></p>
+                <span><i class="fa fa-ellipsis-v"></i></span>
+            </div>
+            <div class="container-fluid p-3">
+                <div class="row d-flex mt-2 p-2 g-2">
+                    <div class="col form-check btn btn-sm status-div" data-status="Arrived" onclick="selectRadio('arrival')">
+                        <div class="counts d-flex justify-content-start">
+                            <div> @Model.Arrivals </div>
+                            <div><span class="badge rounded-pill bg-primary icon"> 3 </span></div>
+                        </div>
+                        <div class="status-name d-flex justify-content-start">
+                            <input class="form-check-input-month d-none" type="radio" name="status" id="arrival" value="1" checked />
+                            <label class="form-check-label w-100" for="arrival">
+                                Arrivals
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="col form-check btn btn-sm status-div" data-status="Left" onclick="selectRadio('depature')">
+                        <div class="counts d-flex justify-content-start">
+                            <div>@Model.Depature</div>
+                            <div><span class="badge rounded-pill bg-primary icon"> 3 </span></div>
+                        </div>
+                        <div class="status-name d-flex justify-content-start">
+                            <input class="form-check-input-month d-none" type="radio" name="status" id="depature" value="2" />
+                            <label class="form-check-label w-100" for="depature">
+                                Departure
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="col form-check btn btn-sm status-div" data-status="Stay" onclick="selectRadio('inhouse')">
+                        <div class="counts d-flex justify-content-start">
+                            @Model.InHouse
+                        </div>
+                        <div class="status-name d-flex justify-content-start">
+                            <input class="form-check-input-month d-none" type="radio" name="status" id="inhouse" value="3" />
+                            <label class="form-check-label w-100" for="inhouse">
+                                In-House
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="col form-check btn btn-sm status-div" onclick="selectRadio('stay-over')">
+                        <div class="counts d-flex justify-content-start">
+                            25
+                        </div>
+                        <div class="status-name d-flex justify-content-start">
+                            <input class="form-check-input-month d-none" type="radio" name="status" id="stay-over" value="4" />
+                            <label class="form-check-label w-100" for="stay-over">
+                                Stay-Over
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="col form-check btn btn-sm status-div" onclick="selectRadio('booking')">
+                        <div class="counts d-flex justify-content-start">
+                            8
+                        </div>
+                        <div class="status-name d-flex justify-content-start">
+                            <input class="form-check-input-month d-none" type="radio" name="status" id="booking" value="5" />
+                            <label class="form-check-label w-100" for="booking">
+                                Pre-Booking
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="col form-check btn btn-sm status-div" onclick="selectRadio('cancellation')">
+                        <div class="counts d-flex justify-content-start">
+                            <div>3</div>
+                            <div><span class="badge rounded-pill bg-danger icon"> 3 </span></div>
+                        </div>
+                        <div class="status-name d-flex justify-content-start">
+                            <input class="form-check-input-month d-none" type="radio" name="status" id="cancellation" value="6" />
+                            <label class="form-check-label w-100" for="cancellation">
+                                Cancellation
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="col form-check btn btn-sm status-div" onclick="selectRadio('wait')">
+                        <div class="counts d-flex justify-content-start">
+                            4
+                        </div>
+                        <div class="status-name d-flex justify-content-start">
+                            <input class="form-check-input-month d-none" type="radio" name="status" id="wait" value="7" />
+                            <label class="form-check-label w-100" for="wait">
+                                Waiting
+                            </label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+
+
+
+            <div class="table-data">
+                <table id="someTest" class="table table-responsive-sm table-responsive-md mt-2">
+                    <thead class="table-header ">
+                        <tr class="table-row">
+                            <th>
+                                <div class="col d-flex justify-content-between guest  " id="myDiv" data-myAttribute="myValue">
+                                    <div>Guest</div>
+                                    <div id="guest-up" data-order="ascending" data-value="guest" style="display:block" onclick="SortAsce('guest')">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-sort-down" viewBox="0 0 16 16">
+                                            <path d="M3.5 2.5a.5.5 0 0 0-1 0v8.793l-1.146-1.147a.5.5 0 0 0-.708.708l2 1.999.007.007a.497.497 0 0 0 .7-.006l2-2a.5.5 0 0 0-.707-.708L3.5 11.293zm3.5 1a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7a.5.5 0 0 1-.5-.5M7.5 6a.5.5 0 0 0 0 1h5a.5.5 0 0 0 0-1zm0 3a.5.5 0 0 0 0 1h3a.5.5 0 0 0 0-1zm0 3a.5.5 0 0 0 0 1h1a.5.5 0 0 0 0-1z" />
+                                        </svg>
+                                    </div>
+                                    <div id="guest-down" data-order="descending" data-value="guest" style="display:none" onclick="SortDeasce('guest')">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-sort-up" viewBox="0 0 16 16">
+                                            <path d="M3.5 12.5a.5.5 0 0 1-1 0V3.707L1.354 4.854a.5.5 0 1 1-.708-.708l2-1.999.007-.007a.5.5 0 0 1 .7.006l2 2a.5.5 0 1 1-.707.708L3.5 3.707zm3.5-9a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7a.5.5 0 0 1-.5-.5M7.5 6a.5.5 0 0 0 0 1h5a.5.5 0 0 0 0-1zm0 3a.5.5 0 0 0 0 1h3a.5.5 0 0 0 0-1zm0 3a.5.5 0 0 0 0 1h1a.5.5 0 0 0 0-1z" />
+                                        </svg>
+                                    </div>
+                                </div>
+                            </th>
+                            <th>
+                                <div class="col d-flex justify-content-between accommodation ">
+                                    <div>
+                                        Accommodation
+                                    </div>
+                                    <div id="acc-up" data-order="ascending" data-value="accomadation" style="display:block" onclick="SortAsce('accommodation')">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-caret-down" viewBox="0 0 16 16">
+                                            <path d="M3.204 5h9.592L8 10.481zm-.753.659 4.796 5.48a1 1 0 0 0 1.506 0l4.796-5.48c.566-.647.106-1.659-.753-1.659H3.204a1 1 0 0 0-.753 1.659" />
+                                        </svg>
+                                    </div>
+                                    <div id="acc-down" data-order="descending" data-value="accomadation" style="display:none" onclick="SortDeasce('accommodation')">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-caret-up" viewBox="0 0 16 16">
+                                            <path d="M3.204 11h9.592L8 5.519zm-.753-.659 4.796-5.48a1 1 0 0 1 1.506 0l4.796 5.48c.566.647.106 1.659-.753 1.659H3.204a1 1 0 0 1-.753-1.659" />
+                                        </svg>
+                                    </div>
+                                </div>
+                            </th>
+                            <th>
+                                <div class="col d-flex justify-content-between stay ">
+                                    <div>Stay</div>
+                                    <div id="stay-up" data-order="ascending" data-value="stay" style="display:block" onclick="SortAsce('stay')">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-caret-down" viewBox="0 0 16 16">
+                                            <path d="M3.204 5h9.592L8 10.481zm-.753.659 4.796 5.48a1 1 0 0 0 1.506 0l4.796-5.48c.566-.647.106-1.659-.753-1.659H3.204a1 1 0 0 0-.753 1.659" />
+                                        </svg>
+                                    </div>
+                                    <div id="stay-down" data-order="descending" data-value="stay" style="display:none" onclick="SortDeasce('stay')">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-caret-up" viewBox="0 0 16 16">
+                                            <path d="M3.204 11h9.592L8 5.519zm-.753-.659 4.796-5.48a1 1 0 0 1 1.506 0l4.796 5.48c.566.647.106 1.659-.753 1.659H3.204a1 1 0 0 1-.753-1.659" />
+                                        </svg>
+                                    </div>
+                                </div>
+                            </th>
+                            <th>
+                                <div class="col">
+                                    <div>Status</div>
+
+                                </div>
+                            </th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+
+                    <tbody class="guest-list container" id="partial">
+                        @foreach (var item in Model.guestModals)
+                        {
+                            <tr>
+                                <td>
+                                    <i class="bi bi-person-circle text-primary"></i> @item.GuestName
+                                    <br><small class="text-muted">@item.ContactNumber</small>
+                                </td>
+                                <td>Standard Single - STS(@item.RoomId)</td>
+                                <td>
+                                    <div>
+                                        <div>@item.CheckInDate.ToString("d") → @item.CheckOutDate.ToString("d")</div>
+
+                                        <div class="d-flex">
+                                            <div class="badge rounded-pill bg-secondary icon d-flex ">
+                                                <div>3 &nbsp;</div>
+                                                <div>
+                                                    <svg xmlns="http://www.w3.org/2000/svg" width="14" height="12" fill="currentColor" class="bi bi-moon-fill" viewBox="0 0 16 16">
+                                                        <path d="M6 .278a.77.77 0 0 1 .08.858 7.2 7.2 0 0 0-.878 3.46c0 4.021 3.278 7.277 7.318 7.277q.792-.001 1.533-.16a.79.79 0 0 1 .81.316.73.73 0 0 1-.031.893A8.35 8.35 0 0 1 8.344 16C3.734 16 0 12.286 0 7.71 0 4.266 2.114 1.312 5.124.06A.75.75 0 0 1 6 .278" />
+                                                    </svg>
+                                                </div>
+                                            </div>
+                                            <span class="badge rounded-pill bg-secondary icon">
+                                                3&nbsp;
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="14" height="12" fill="currentColor" class="bi bi-person-fill" viewBox="0 0 16 16">
+                                                    <path d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6" />
+                                                </svg>
+                                            </span>
+                                            <span class="badge rounded-pill bg-secondary icon">
+                                                3&nbsp;
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="10" height="10" fill="currentColor" class="bi bi-person-fill" viewBox="0 0 16 16">
+                                                    <path d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6" />
+                                                </svg>
+                                            </span>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td><button class="btn btn-primary status-btn">@item.Status</button></td>
+                                <td>
+                                    <button class="icon-btn"><i class="bi bi-chat-left-dots"></i></button>
+                                    <button class="icon-btn"><i class="bi bi-credit-card"></i></button>
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+
+        </div>
+    </div>
+
+
+</div>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script src="~/js/secondjavascript.js"></script>
+<script>
+        document.addEventListener("DOMContentLoaded", function () {
+        var ctx = document.getElementById("occupancyChart").getContext("2d");
+        var doughnutChart = new Chart(ctx, {
+            type: "doughnut",
+            data: {
+                labels: ["Booked", "Available", "Blocked"],
+                datasets: [{
+                    data: [@Model.Booked, @Model.Available, @Model.Blocked],
+                    backgroundColor: ["#FF6384", "#36A2EB", "#FFCE56"]
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                 cutout: "60%",
+              plugins: {
+                        legend: {
+                            display: false  // This hides the legend
+                        }
+                    },
+                     tooltip: {
+                            enabled: true, // Show tooltip on hover
+                            callbacks: {
+                                label: function (tooltipItem) {
+                                    return tooltipItem.label + ": " + tooltipItem.raw;
+                                }
+                            }
+                        }
+            }
+        });
+    });
+</script>
+@* <script>
+    //     $(document).ready(function () {
+
+    //     $("#someTest").dataTable({
+    //         "processing": true,
+    //         "ServerSide": false,
+    //         "Filter": true,
+    //         "orderMulti": true,
+
+    //     })
+    // });
+
+    var ctx = document.getElementById('occupancyChart').getContext('2d');
+    var occupancyChart = new Chart(ctx, {
+        type: 'doughnut',
+        data: {
+            labels: ['Booked', 'Available', 'Blocked'],
+            datasets: [{
+                data: [@Model.Booked, @Model.Available, @Model.Blocked],
+                backgroundColor: ['#ffe8ff', '#f8fbcc', '#fadbd8']
+            }]
+        },
+        options: {
+            responsive: true,
+
+            cutout: '60%',
+            plugins: {
+                legend: {
+                    display: false // Hides the legend (bottom bars)
+                }
+
+            }
+        }
+    });
+   
+
+    function SortAsce(x) {
+
+          let div = document.getElementById('guest-up');
+         let order = div.getAttribute('data-order');
+         let value = div.getAttribute('data-value');
+
+         console.log(order,value,x);
+     
+        $.ajax(
+            {
+                type: 'GET',
+                //pass the year and month to FindNumberOfDays action in controller
+                url: '/Project/SortTheData',
+                data: { 'SortOrder': order,'Sortby':value },
+                success:
+                    function (response) {
+                        //dsiplay the sccuess response
+                        document.getElementById('guest-up').style.display = 'none';
+                        document.getElementById('guest-down').style.display = 'block';
+                        document.getElementById('acc-up').style.display = 'none';
+                        document.getElementById('acc-down').style.display = 'block';
+                        $("#partial").html(response);
+                    }
+            });
+    }
+    function SortDeasce() {
+        var result = "Descending";
+        $.ajax(
+            {
+                type: 'GET',
+                //pass the year and month to FindNumberOfDays action in controller
+                url: '/Project/SortTheData',
+                data: { 'SortOrder': result },
+                success:
+                    function (response) {
+                        //dsiplay the sccuess response
+                        document.getElementById('guest-up').style.display = 'block';
+                        document.getElementById('guest-down').style.display = 'none';
+                        document.getElementById('acc-up').style.display = 'block';
+                        document.getElementById('acc-down').style.display = 'none';
+                        $("#partial").html(response);
+                    }
+            });
+    }
+</script> *@

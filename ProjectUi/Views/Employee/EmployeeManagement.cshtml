@@ -1,0 +1,233 @@
+﻿@model List<EmployeeManagement>
+<style>
+    .main-emp{
+        margin-left:10px;
+    }
+    .profile-image {
+        width: 2.813rem;
+        height: 2.813rem;
+        border-radius: 50%;
+        object-fit: cover;
+        cursor: grab;
+    }
+
+    .txt-dob{
+        width:1rem;
+        font-size: 0.875rem;
+        font:bold;
+    }
+
+    .txt-doj{
+        font-size: 0.875rem;
+        font: bold;
+    }
+
+    
+
+</style>
+<div class="main-emp p-2">
+    
+    <div class="row container-fluid "> 
+        <div class="row mt-3 ">
+            <div class="col  d-flex justify-content-end p-2" > <button class="btn btn-primary" id="btnAdd">Add Employee</button></div>
+
+        </div>
+        <div class="row mt-2 d-block d-lg-flex d-md-flex d-sm-flex">
+            <div class="col col-sm input-group">
+                <input type="search" class="form-control rounded" placeholder="SearchBy Department" aria-label="Search" aria-describedby="search-addon" id="dept" />
+                <button type="button" class="btn btn-sm btn-outline-primary" data-mdb-ripple-init onclick="Search('Dept')">search</button>
+            </div>
+            <div class="col col-sm input-group">
+                <input type="search" class="form-control rounded" placeholder="SearchBy Designation" aria-label="Search" aria-describedby="search-addon" id="designation" />
+                <button type="button" class="btn btn-sm btn-outline-primary" data-mdb-ripple-init onclick="Search('Designation')">search</button>
+            </div>
+          
+            <div class="col input-group rounded">
+                <input type="search" class="form-control rounded" placeholder="Search" aria-label="Search" aria-describedby="search-addon" />
+                
+            </div>
+            
+        </div>
+    </div>
+    
+
+    <table class="row table table-striped  table-responsive mt-5 p-3">
+        <thead>
+            <tr>
+
+                <th>S.No</th>
+                <th>EmployeePhoto</th>
+                <th style ="width:250px;">
+                    Employee Name <span class="sort-icon" onclick="sortTable(this, 2)">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-sort-up" viewBox="0 0 16 16">
+                            <path d="M3.5 12.5a.5.5 0 0 1-1 0V3.707L1.354 4.854a.5.5 0 1 1-.708-.708l2-1.999.007-.007a.5.5 0 0 1 .7.006l2 2a.5.5 0 1 1-.707.708L3.5 3.707zm3.5-9a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7a.5.5 0 0 1-.5-.5M7.5 6a.5.5 0 0 0 0 1h5a.5.5 0 0 0 0-1zm0 3a.5.5 0 0 0 0 1h3a.5.5 0 0 0 0-1zm0 3a.5.5 0 0 0 0 1h1a.5.5 0 0 0 0-1z" />
+                        </svg>
+                    </span>
+                </th>
+                <th style="width:180px;">
+                    Employee Code <span class="sort-icon" onclick="sortTable(this, 3)">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-sort-up" viewBox="0 0 16 16">
+                            <path d="M3.5 12.5a.5.5 0 0 1-1 0V3.707L1.354 4.854a.5.5 0 1 1-.708-.708l2-1.999.007-.007a.5.5 0 0 1 .7.006l2 2a.5.5 0 1 1-.707.708L3.5 3.707zm3.5-9a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7a.5.5 0 0 1-.5-.5M7.5 6a.5.5 0 0 0 0 1h5a.5.5 0 0 0 0-1zm0 3a.5.5 0 0 0 0 1h3a.5.5 0 0 0 0-1zm0 3a.5.5 0 0 0 0 1h1a.5.5 0 0 0 0-1z" />
+                        </svg>
+                    </span>
+                </th>
+                <th style="width:180px;">
+                    Department <span class="sort-icon" onclick="sortTable(this, 4)">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-sort-up" viewBox="0 0 16 16">
+                            <path d="M3.5 12.5a.5.5 0 0 1-1 0V3.707L1.354 4.854a.5.5 0 1 1-.708-.708l2-1.999.007-.007a.5.5 0 0 1 .7.006l2 2a.5.5 0 1 1-.707.708L3.5 3.707zm3.5-9a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7a.5.5 0 0 1-.5-.5M7.5 6a.5.5 0 0 0 0 1h5a.5.5 0 0 0 0-1zm0 3a.5.5 0 0 0 0 1h3a.5.5 0 0 0 0-1zm0 3a.5.5 0 0 0 0 1h1a.5.5 0 0 0 0-1z" />
+                        </svg>
+                    </span>
+                </th>
+                <th style="width:180px;">
+                    Designation  <span class="sort-icon" onclick="sortTable(this, 5)">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-sort-up" viewBox="0 0 16 16">
+                            <path d="M3.5 12.5a.5.5 0 0 1-1 0V3.707L1.354 4.854a.5.5 0 1 1-.708-.708l2-1.999.007-.007a.5.5 0 0 1 .7.006l2 2a.5.5 0 1 1-.707.708L3.5 3.707zm3.5-9a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7a.5.5 0 0 1-.5-.5M7.5 6a.5.5 0 0 0 0 1h5a.5.5 0 0 0 0-1zm0 3a.5.5 0 0 0 0 1h3a.5.5 0 0 0 0-1zm0 3a.5.5 0 0 0 0 1h1a.5.5 0 0 0 0-1z" />
+                        </svg>
+                    </span>
+                </th>
+                <th style="width:180px;">
+                    Date of Birth <span class="sort-icon" onclick="sortTable(this, 6)">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-sort-up" viewBox="0 0 16 16">
+                            <path d="M3.5 12.5a.5.5 0 0 1-1 0V3.707L1.354 4.854a.5.5 0 1 1-.708-.708l2-1.999.007-.007a.5.5 0 0 1 .7.006l2 2a.5.5 0 1 1-.707.708L3.5 3.707zm3.5-9a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7a.5.5 0 0 1-.5-.5M7.5 6a.5.5 0 0 0 0 1h5a.5.5 0 0 0 0-1zm0 3a.5.5 0 0 0 0 1h3a.5.5 0 0 0 0-1zm0 3a.5.5 0 0 0 0 1h1a.5.5 0 0 0 0-1z" />
+                        </svg>
+                    </span>
+                </th>
+                <th style="width:150px;">
+                    Joining Date <span class="sort-icon" onclick="sortTable(this, 7)">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-sort-up" viewBox="0 0 16 16">
+                            <path d="M3.5 12.5a.5.5 0 0 1-1 0V3.707L1.354 4.854a.5.5 0 1 1-.708-.708l2-1.999.007-.007a.5.5 0 0 1 .7.006l2 2a.5.5 0 1 1-.707.708L3.5 3.707zm3.5-9a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7a.5.5 0 0 1-.5-.5M7.5 6a.5.5 0 0 0 0 1h5a.5.5 0 0 0 0-1zm0 3a.5.5 0 0 0 0 1h3a.5.5 0 0 0 0-1zm0 3a.5.5 0 0 0 0 1h1a.5.5 0 0 0 0-1z" />
+                        </svg>
+                    </span>
+                </th>
+               
+                <th>JobType</th>
+                <th>Action</th>
+
+            </tr>
+        </thead>
+        <tbody id="tble-data">
+            @foreach (var item in Model)
+{
+    <tr>
+        <td>@item.SNo</td>
+        <td><img src="@item.Photo" class="profile-image" alt="Alternate Text" /></td>
+        <td>@item.EmployeeName</td>
+
+        <td>@item.EmployeeCode</td>
+        <td>@item.Department</td>
+        <td>@item.Designation</td>
+        <td class="txt-dob">@item.DOB.ToString("d")</td>
+        <td class="txt-doj">@item.DateOfJoin.ToString("d")</td>
+        <td>@item.JobType</td>
+        <td>
+            <div class="d-flex action-div">
+                <div class="p-2">
+                    <button class="btn btn-success" id="edit" onclick="Edit(@item.SNo)">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pencil-fill" viewBox="0 0 16 16">
+                            <path d="M12.854.146a.5.5 0 0 0-.707 0L10.5 1.793 14.207 5.5l1.647-1.646a.5.5 0 0 0 0-.708zm.646 6.061L9.793 2.5 3.293 9H3.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.207zm-7.468 7.468A.5.5 0 0 1 6 13.5V13h-.5a.5.5 0 0 1-.5-.5V12h-.5a.5.5 0 0 1-.5-.5V11h-.5a.5.5 0 0 1-.5-.5V10h-.5a.5.5 0 0 1-.175-.032l-.179.178a.5.5 0 0 0-.11.168l-2 5a.5.5 0 0 0 .65.65l5-2a.5.5 0 0 0 .168-.11z" />
+                        </svg>
+                    </button>
+                </div>
+                <div class="p-2">
+                    <button asp-controller="Home" asp-action="View" asp-route-id="@item.EmployeeCode" class="btn btn-primary">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-eye" viewBox="0 0 16 16">
+                            <path d="M16 8s-3-5.5-8-5.5S0 8 0 8s3 5.5 8 5.5S16 8 16 8M1.173 8a13 13 0 0 1 1.66-2.043C4.12 4.668 5.88 3.5 8 3.5s3.879 1.168 5.168 2.457A13 13 0 0 1 14.828 8q-.086.13-.195.288c-.335.48-.83 1.12-1.465 1.755C11.879 11.332 10.119 12.5 8 12.5s-3.879-1.168-5.168-2.457A13 13 0 0 1 1.172 8z" />
+                            <path d="M8 5.5a2.5 2.5 0 1 0 0 5 2.5 2.5 0 0 0 0-5M4.5 8a3.5 3.5 0 1 1 7 0 3.5 3.5 0 0 1-7 0" />
+                        </svg>
+                    </button>
+                </div>
+                <div class="p-2">
+                    <button asp-controller="Home" asp-action="Delete" asp-route-id="@item.EmployeeCode" class="btn btn-danger  ">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-trash3-fill" viewBox="0 0 16 16">
+                            <path d="M11 1.5v1h3.5a.5.5 0 0 1 0 1h-.538l-.853 10.66A2 2 0 0 1 11.115 16h-6.23a2 2 0 0 1-1.994-1.84L2.038 3.5H1.5a.5.5 0 0 1 0-1H5v-1A1.5 1.5 0 0 1 6.5 0h3A1.5 1.5 0 0 1 11 1.5m-5 0v1h4v-1a.5.5 0 0 0-.5-.5h-3a.5.5 0 0 0-.5.5M4.5 5.029l.5 8.5a.5.5 0 1 0 .998-.06l-.5-8.5a.5.5 0 1 0-.998.06m6.53-.528a.5.5 0 0 0-.528.47l-.5 8.5a.5.5 0 0 0 .998.058l.5-8.5a.5.5 0 0 0-.47-.528M8 4.5a.5.5 0 0 0-.5.5v8.5a.5.5 0 0 0 1 0V5a.5.5 0 0 0-.5-.5" />
+                        </svg>
+                    </button>
+                </div>
+            </div>
+
+        </td>
+
+
+
+    </tr>
+
+}
+
+           
+        </tbody>
+    </table>
+
+</div>
+
+
+<div class="modal" data-bs-backdrop="static" id="popDis">
+    <div class="modal-dialog ">
+        <div class="modal-content ">
+            
+                <div class="modal-header">
+                    <h5 class="modal-title" id="createModalLabel">Create Employee</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+            <div class="modal-body">
+                <form id="employeeForm">
+                    <div class="mb-2">
+                        <label for="sno"  class="form-label">S.No</label>
+                        <input type="text" id="sno" class="form-control mb-2" placeholder="Serial No" name="SNo" required />
+
+                    </div>
+                    <div class="mb-2">
+                        <label for="name"  class="form-label">EmployeeName</label>
+                        <input type="text" id="name" class="form-control mb-2" placeholder="Employee No" name="EmployeeName" required />
+
+                    </div>
+                    <div class="mb-2">
+                        <label for="empcode" class="form-label">EmployeeCode</label>
+                        <input type="text" id="empcode" class="form-control mb-2" placeholder="Employee Code" name="EmployeeCode" required />
+
+                    </div>
+                    <div class="mb-2">
+                        <label for="dept"  class="form-label">Department</label>
+                        <input type="text" id="dept" class="form-control mb-2" placeholder="DepartMent" name="Department" required />
+                    </div>
+                    <div class="mb-2">
+                        <label for="desig" class="form-label">Designation</label>
+                        <input type="text" id="desig" class="form-control mb-2" placeholder="Designation" name="Designation" required />
+                    </div>
+                    <div class="mb-2">
+                        <label for="dob" class="form-label">DOB</label>
+                        <input type="text" id="dob" class="form-control mb-2" placeholder="Date of Birth" name="DOB" required />
+                    </div>
+                    <div class="mb-2">
+                        <label for="doj"  class="form-label">DOJ</label>
+                        <input type="text" id="doj" class="form-control mb-2" placeholder="Date of Joining" name="DateOfJoin" required />
+                    </div>
+                    <div class="mb-2">
+                        <label for="jobtype" class="form-label">Job-Type</label>
+                        <input type="text" id="jobtype" class="form-control mb-2" placeholder="Jobtype" name="JObType" required />
+                    </div>
+                    <div class="mb-2">
+                        <label for="img"  class="form-label">Designation</label>
+                        <input type="file"  id="img" class="form-control mb-2" name="EmployeeImage" required>
+                    </div>
+                   <div>
+                        <button type="submit" class="btn btn-success" id="save">Submit</button>
+                        <button type="submit" class="btn btn-success" style="display:none" id="update">Update</button>
+                        
+                   </div>
+                    
+                   
+                </form>
+                <div class="alert alert-danger mt-2 d-none" id="errorMessage"></div>
+                <div class="alert alert-success mt-2 d-none" id="successMessage"></div>
+            </div>
+               
+           
+        </div>
+    </div>
+</div>
+
+
+
+
+<script src="~/lib/jquery/dist/jquery.min.js"></script>
+<script src="~/js/employeejavascript.js"></script>

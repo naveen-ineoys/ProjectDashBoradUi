@@ -1,0 +1,45 @@
+﻿@model List<AssetManageMent>
+
+<div class="p-2">
+
+    <div class="container-fluid d-flex justify-content-end mt-3">
+        <a class="btn btn-primary">Create</a>
+
+    </div>
+
+    <table class="table table-light table-danger  table-responsive-sm mt-5">
+        <thead>
+            <tr>
+
+                <th>RoomNo</th>
+                <th>Bought Things Name</th>
+                <th>BoughtBY</th>
+                <th>BoughtData</th>
+                <th>TotalPrice</th>
+                <th>Edit</th>
+                <th>Read</th>
+
+            </tr>
+        </thead>
+        <tbody>
+
+            @foreach (var item in Model)
+            {
+                <tr>
+
+                    <td>@item.RoomNo</td>
+                    <td>@item.BoughtThingsName</td>
+                    <td>@item.BoughtBy</td>
+                    <td>@item.BoughtDate.ToString("MM / dd /yyyy")</td>
+                    <td>@item.TotalPrice</td>
+                    <td><a asp-controller="Home" asp-action="Edit" asp-route-id="@item.RoomNo" class="btn btn-outline-primary">Edit</a></td>
+                    <td><a asp-controller="Home" asp-action="Delete" asp-route-id="@item.RoomNo" class="btn btn-outline-danger  ">Delete</a></td>
+
+
+                </tr>
+
+            }
+        </tbody>
+    </table>
+
+</div>
